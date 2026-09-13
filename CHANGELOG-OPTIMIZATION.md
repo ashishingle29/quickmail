@@ -149,6 +149,27 @@ This document maintains a strict, verified record of every task executed, files 
 - **Deliverable Created:** `CWS-STORE-COPY.md`
 - **Next Task:** `QMF-009` (Visuals & Conversion Optimization: Icons, Screenshots, Promo Tiles)
 
+---
+
+### [QMF-009] Visuals & Conversion Optimization (Icons, Screenshots, Promo Tiles)
+- **Status:** DONE
+- **Date Completed:** 2026-09-13
+- **Designer:** Senior Chrome Web Store UX / Conversion Specialist & Visual Art Director
+- **Methodology:** CWS graphic asset guidelines compliance, 16:10 screenshot composition modeling, and visual conversion psychology.
+- **Deliverables Produced:**
+  - Design system tokens defined (Electric Indigo-Violet `#4f46e5` to `#7c3aed`, Midnight Slate `#0a0f1d`, Glassmorphism, Emerald `#10b981`).
+  - Store Icon specifications (128x128, 48x48, 16x16) tested for high-contrast visibility on both CWS Light (`#fff`) and Dark (`#131314`) themes.
+  - Promotional Tiles specifications: Small Tile (440x280) with strict 25px no-text safety borders; Marquee Banner (1400x560) for CWS Featured / Editorial shelf eligibility.
+  - 5 High-Converting Production Screenshots (1280x800 each) following a "Problem $\rightarrow$ Solution $\rightarrow$ Benefit" storyboard:
+    1. Hero Detection (Real-time in-page email detection with badge counts)
+    2. In-Page `[✉]` Button & Floating Draft Panel (Instant compose directly inside the page)
+    3. Smart Templates & Google Drive Resume Integration (Eliminating repetitive outreach)
+    4. 1-Click Compose in Gmail & Outlook (Multi-account `/u/0/` and `/u/1/` routing)
+    5. Application Outreach Tracker & Instant CSV Export (Local status logging & downloads)
+- **Deliverable Created:** `STORE-VISUALS-SPECIFICATION.md`
+- **Next Task:** `QMF-010` (Dedicated Product Website & High-Converting Landing Architecture)
+
+
 
 
 

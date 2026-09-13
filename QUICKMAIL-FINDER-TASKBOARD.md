@@ -10,7 +10,7 @@
 | **QMF-006** | **P0** | **SEO** | High-Intent Keyword Research (Volume, Intent, SERP) | **DONE** | QMF-005 | 2026-09-13 (Passed) |
 | **QMF-007** | **P0** | **SEO** | Keyword Gap Analysis & Opportunity Mapping | **DONE** | QMF-006 | 2026-09-13 (Passed) |
 | **QMF-008** | **P0** | **Store** | Chrome Web Store Copy Optimization (Title, Summary, Description) | **DONE** | QMF-007 | 2026-09-13 (Passed) |
-| **QMF-009** | P1 | Store | Visuals & Conversion Optimization (Icons, Screenshots, Tiles) | TODO | QMF-008 | — |
+| **QMF-009** | **P1** | **Store** | Visuals & Conversion Optimization (Icons, Screenshots, Tiles) | **DONE** | QMF-008 | 2026-09-13 (Passed) |
 | **QMF-010** | P1 | Website | Dedicated Product Website & High-Converting Landing Architecture | TODO | QMF-008 | — |
 | **QMF-011** | P1 | Website SEO | Organic SEO Website Architecture & High-Intent Landing Pages | TODO | QMF-010 | — |
 | **QMF-012** | P1 | Content | Organic Content Strategy & Question Clusters (50+ Opportunities) | TODO | QMF-011 | — |
