@@ -21,3 +21,22 @@ This document maintains a strict, verified record of every task executed, files 
   - Minor discrepancies flagged: CWS store is running v1.0.0 while local is v1.2.0; dual feedback Google Form URLs; Gist privacy policy timestamp needs 2026 update.
 - **Deliverable Created:** `PRIVACY-DATA-AUDIT.md`
 - **Next Task:** `QMF-002` (Technical Security & Permissions Audit)
+
+---
+
+### [QMF-002] Technical Security & Permissions Audit
+- **Status:** DONE
+- **Date Completed:** 2026-09-13
+- **Auditor:** Senior Chrome Extension Engineer & Security Auditor
+- **Files / Resources Inspected:**
+  - `manifest.json`: permissions array, host_permissions, CSP, content script matches
+  - `background.js`: Chrome API calls (`chrome.tabs`, `chrome.windows`, `chrome.storage`, `chrome.contextMenus`)
+  - `content.js`: DOM manipulation, safe URL checks, CSP compliance
+  - `popup.js`, `popup.html`: innerHTML sanitization, zero remote scripts
+- **Key Findings:**
+  - 100% strict MV3 CSP compliance: zero remote scripts, zero `eval()`, zero inline handlers.
+  - Zero hardcoded secrets, private keys, or insecure `http://` calls.
+  - `storage`, `contextMenus`, and `activeTab` trigger zero install warnings.
+  - **High-Impact Conversion Discovery:** `"tabs"` permission is redundant. Core tab operations (`create`, `remove`, `update`) work without `"tabs"`. Removing `"tabs"` eliminates the scary *"Read your browsing history"* install prompt.
+- **Deliverable Created:** `PERMISSIONS-AUDIT.md`
+- **Next Task:** `QMF-003` (End-to-End Product Functionality & Edge-Case Audit)

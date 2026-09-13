@@ -3,7 +3,7 @@
 | ID | Priority | Category | Task Description | Status | Dependency | Completed / Validated |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | **QMF-001** | **P0** | **Privacy** | Complete Privacy & Data Handling Audit (Code vs CWS declarations) | **DONE** | — | 2026-09-13 (Passed) |
-| **QMF-002** | P0 | Security | Technical Security & Permissions Audit (`manifest.json` & APIs) | TODO | QMF-001 | — |
+| **QMF-002** | **P0** | **Security** | Technical Security & Permissions Audit (`manifest.json` & APIs) | **DONE** | QMF-001 | 2026-09-13 (Passed) |
 | **QMF-003** | P0 | QA | End-to-End Product Functionality & Edge-Case Audit | TODO | QMF-002 | — |
 | **QMF-004** | P0 | Positioning | Market Segmentation & Primary Audience Definition | TODO | QMF-003 | — |
 | **QMF-005** | P0 | Research | Chrome Web Store Competitor Deep-Dive Analysis | TODO | QMF-004 | — |
