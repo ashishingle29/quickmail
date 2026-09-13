@@ -12,7 +12,7 @@
 | **QMF-008** | **P0** | **Store** | Chrome Web Store Copy Optimization (Title, Summary, Description) | **DONE** | QMF-007 | 2026-09-13 (Passed) |
 | **QMF-009** | **P1** | **Store** | Visuals & Conversion Optimization (Icons, Screenshots, Tiles) | **DONE** | QMF-008 | 2026-09-13 (Passed) |
 | **QMF-010** | **P1** | **Website** | Dedicated Product Website & High-Converting Landing Architecture | **DONE** | QMF-008 | 2026-09-13 (Passed) |
-| **QMF-011** | P1 | Website SEO | Organic SEO Website Architecture & High-Intent Landing Pages | TODO | QMF-010 | — |
+| **QMF-011** | **P1** | **Website SEO** | Organic SEO Website Architecture & High-Intent Landing Pages | **DONE** | QMF-010 | 2026-09-13 (Passed) |
 | **QMF-012** | P1 | Content | Organic Content Strategy & Question Clusters (50+ Opportunities) | TODO | QMF-011 | — |
 | **QMF-013** | P1 | Analytics | Privacy-Preserving Funnel & Lifecycle Analytics Specification | TODO | QMF-001 | — |
 | **QMF-014** | P1 | Activation | Onboarding, Activation & Retention Engine Optimization | TODO | QMF-003 | — |
