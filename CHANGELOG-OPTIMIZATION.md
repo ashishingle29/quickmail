@@ -40,3 +40,19 @@ This document maintains a strict, verified record of every task executed, files 
   - **High-Impact Conversion Discovery:** `"tabs"` permission is redundant. Core tab operations (`create`, `remove`, `update`) work without `"tabs"`. Removing `"tabs"` eliminates the scary *"Read your browsing history"* install prompt.
 - **Deliverable Created:** `PERMISSIONS-AUDIT.md`
 - **Next Task:** `QMF-003` (End-to-End Product Functionality & Edge-Case Audit)
+
+---
+
+### [QMF-003] End-to-End Product Functionality & Edge-Case Audit
+- **Status:** DONE
+- **Date Completed:** 2026-09-13
+- **Auditor:** Senior Chrome Extension Engineer & QA Lead
+- **Files / Resources Inspected:**
+  - Automated test harness (`scratch/test_qa_suite.js`) executing 5 test suites.
+  - End-to-end journey: detection $\rightarrow$ inline icon injection $\rightarrow$ pre-filled panel $\rightarrow$ template substitution $\rightarrow$ Gmail/Outlook compose launch $\rightarrow$ status tracking in local history.
+  - Edge cases: split-span DOM, empty pages, duplicates, image filename false-positives, restricted domains, restricted emails with wildcards, multiple Google accounts (`/u/0/`), high-volume history (debouncing + lazy-loading).
+- **Key Findings:**
+  - 100% test pass rate across all core workflows.
+  - All recent fixes (DOM spacing, email prefix sanitization, debounce optimization, cascade windows) validated functional.
+- **Deliverable Created:** `PRODUCT-QA-REPORT.md`
+- **Next Task:** `QMF-004` (Market Segmentation & Primary Audience Definition)
