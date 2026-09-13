@@ -18,7 +18,7 @@
 | **QMF-014** | **P1** | **Activation** | Onboarding, Activation & Retention Engine Optimization | **DONE** | QMF-003 | 2026-09-13 (Passed) |
 | **QMF-015** | **P1** | **Trust** | Genuine Review & User Feedback Collection System | **DONE** | QMF-014 | 2026-09-13 (Passed) |
 | **QMF-016** | **P2** | **Distribution**| Organic Multi-Channel Distribution & Community Engine | **DONE** | QMF-004 | 2026-09-13 (Passed) |
-| **QMF-017** | P2 | Growth | Step-by-Step Acquisition Playbook: First 100 → 1,000 → 10k Users | TODO | QMF-016 | — |
+| **QMF-017** | **P2** | **Growth** | Step-by-Step Acquisition Playbook: First 100 → 1,000 → 10k Users | **DONE** | QMF-016 | 2026-09-13 (Passed) |
 | **QMF-018** | P2 | Viral | Organic Product Loops, Templates & Referral Mechanisms | TODO | QMF-014 | — |
 | **QMF-019** | P2 | Scale | Performance, DOM Overhead & High-Scale Efficiency Audit | TODO | QMF-003 | — |
 | **QMF-020** | P0 | Launch | Final Pre-Launch Verification Checklist & Deployment Plan | TODO | All Prior | — |
