@@ -6,7 +6,7 @@
 | **QMF-002** | **P0** | **Security** | Technical Security & Permissions Audit (`manifest.json` & APIs) | **DONE** | QMF-001 | 2026-09-13 (Passed) |
 | **QMF-003** | **P0** | **QA** | End-to-End Product Functionality & Edge-Case Audit | **DONE** | QMF-002 | 2026-09-13 (Passed) |
 | **QMF-004** | **P0** | **Positioning** | Market Segmentation & Primary Audience Definition | **DONE** | QMF-003 | 2026-09-13 (Passed) |
-| **QMF-005** | P0 | Research | Chrome Web Store Competitor Deep-Dive Analysis | TODO | QMF-004 | — |
+| **QMF-005** | **P0** | **Research** | Chrome Web Store Competitor Deep-Dive Analysis | **DONE** | QMF-004 | 2026-09-13 (Passed) |
 | **QMF-006** | P0 | SEO | High-Intent Keyword Research (Volume, Intent, SERP) | TODO | QMF-005 | — |
 | **QMF-007** | P0 | SEO | Keyword Gap Analysis & Opportunity Mapping | TODO | QMF-006 | — |
 | **QMF-008** | P0 | Store | Chrome Web Store Copy Optimization (Title, Summary, Description) | TODO | QMF-007 | — |

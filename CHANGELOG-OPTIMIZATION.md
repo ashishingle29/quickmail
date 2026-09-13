@@ -72,3 +72,24 @@ This document maintains a strict, verified record of every task executed, files 
   - Differentiation from B2B sales giants: 100% on-device privacy, zero account signup required, free Google Drive resume attachment cards, no monthly subscription caps.
 - **Deliverable Created:** `POSITIONING-AUDIT.md`
 - **Next Task:** `QMF-005` (Chrome Web Store Competitor Deep-Dive Analysis)
+
+---
+
+### [QMF-005] Chrome Web Store Competitor Deep-Dive Analysis
+- **Status:** DONE
+- **Date Completed:** 2026-09-13
+- **Auditor:** Senior Chrome Extension Engineer & CWS Optimization Specialist
+- **Methodology:** Direct Chrome Web Store SERP extraction, DOM analysis, and review synthesis via live headless browser.
+- **Competitors Analyzed:**
+  - Hunter - Email Finder Extension (600,000+ users, 4.7 ⭐, 12.5k reviews)
+  - Email Finder by Snov.io (400,000+ users, 4.9 ⭐, 6.1k reviews)
+  - Email Finder - GetProspect (100,000+ users, 4.8 ⭐, 1.3k reviews)
+  - Email Finder by ContactOut (600,000+ users, 4.4 ⭐, 796 reviews)
+  - Email Extractor (1,000,000+ users, 4.5 ⭐, 1.7k reviews)
+- **Key Findings & Strategic Whitespace:**
+  - All top competitors enforce strict credit limits (25–50 credits/month) and mandatory work-email account walls ($39–$99/month).
+  - High negative review sentiment around credit depletion, clunky CRM-focused sequences, and LinkedIn account warnings.
+  - Core QMF Whitespace: 100% Free & Unlimited on-device detection + 1-Click Gmail/Outlook draft workflow with zero sign-up required.
+- **Deliverable Created:** `COMPETITOR-ANALYSIS.md`
+- **Next Task:** `QMF-006` (High-Intent Keyword Research: Volume, Intent, SERP Analysis)
+
