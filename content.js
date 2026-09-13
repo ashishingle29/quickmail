@@ -461,6 +461,7 @@
       const icon = document.createElement("span");
       icon.className = "qmf-icon";
       icon.textContent = "✉";
+      icon.dataset.qmfBound = "true";
       icon.title = "Draft email to " + email;
       icon.addEventListener("click", (e) => {
         e.stopPropagation();
@@ -492,6 +493,58 @@
     }
   }
 
+  function harvestExistingEmails(root = document) {
+    if (!root || !root.querySelectorAll) return;
+    let added = false;
+    try {
+      root.querySelectorAll(".qmf-email-wrap").forEach((wrap) => {
+        const emailEl = wrap.querySelector(".qmf-email-text");
+        const iconEl = wrap.querySelector(".qmf-icon");
+        const email = emailEl && emailEl.textContent && emailEl.textContent.trim();
+        const validEmail = cleanAndValidateEmail(email);
+        if (validEmail) {
+          if (!foundEmails.has(validEmail)) {
+            foundEmails.add(validEmail);
+            added = true;
+            if (detectionMode === "auto") recordHistory(validEmail);
+          }
+          if (iconEl && !iconEl.dataset.qmfBound) {
+            iconEl.dataset.qmfBound = "true";
+            iconEl.addEventListener("click", (e) => {
+              e.stopPropagation();
+              e.preventDefault();
+              openPanel(iconEl, validEmail);
+            });
+          }
+        }
+      });
+
+      root.querySelectorAll(".qmf-split-badge").forEach((badge) => {
+        const email = badge.dataset && badge.dataset.email;
+        const validEmail = cleanAndValidateEmail(email);
+        if (validEmail) {
+          if (!foundEmails.has(validEmail)) {
+            foundEmails.add(validEmail);
+            added = true;
+            if (detectionMode === "auto") recordHistory(validEmail);
+          }
+          const iconEl = badge.querySelector(".qmf-icon");
+          if (iconEl && !iconEl.dataset.qmfBound) {
+            iconEl.dataset.qmfBound = "true";
+            iconEl.addEventListener("click", (e) => {
+              e.stopPropagation();
+              e.preventDefault();
+              openPanel(iconEl, validEmail);
+            });
+          }
+        }
+      });
+    } catch (e) {}
+    if (added && detectionMode === "auto") {
+      updateBadge();
+    }
+  }
+
   function scanRoot(root) {
     if (!extensionEnabled || isCurrentPageRestricted() || !root) return;
     if (root.nodeType === Node.TEXT_NODE) {
@@ -500,6 +553,8 @@
     }
     if (root.nodeType !== Node.ELEMENT_NODE && root.nodeType !== Node.DOCUMENT_FRAGMENT_NODE) return;
     if (root.tagName && SKIP_TAGS.has(root.tagName)) return;
+
+    harvestExistingEmails(root);
 
     const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
       acceptNode(node) {
@@ -612,7 +667,7 @@
             const badge = document.createElement("span");
             badge.className = "qmf-split-badge";
             badge.dataset.email = validEmail;
-            badge.innerHTML = ` <span class="qmf-icon" title="Draft email to ${validEmail}" style="cursor:pointer;">✉</span>`;
+            badge.innerHTML = ` <span class="qmf-icon" data-qmf-bound="true" title="Draft email to ${validEmail}" style="cursor:pointer;">✉</span>`;
             badge.querySelector(".qmf-icon").addEventListener("click", (e) => {
               e.stopPropagation();
               e.preventDefault();
@@ -709,6 +764,7 @@
     }
 
     if (msg && msg.type === "QMF_GET_EMAILS") {
+      harvestExistingEmails(document);
       const restricted = isCurrentPageRestricted();
       sendResponse({
         emails: (extensionEnabled && !restricted) ? Array.from(foundEmails) : [],

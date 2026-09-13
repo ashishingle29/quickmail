@@ -8,3 +8,7 @@ Thumbs.db
 *.log
 .vscode/
 .idea/
+# Media and scratch
+*.mp4
+*.webm
+scratch/

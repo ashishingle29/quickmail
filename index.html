@@ -48,6 +48,45 @@
     "description": "100% free Chrome extension to detect emails on visited webpages and launch 1-click personalized drafts in Gmail or Outlook."
   }
   </script>
+
+  <!-- VideoObject JSON-LD for Google Video Search Indexing -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "The Secret Tool to Finding Recruiter Emails on LinkedIn - QuickMail Finder",
+    "description": "Watch how QuickMail Finder automatically detects recruiter emails on LinkedIn and websites with 1-click personalized outreach in Gmail.",
+    "thumbnailUrl": [
+      "https://i.ytimg.com/vi/sANlUtV-1nI/hqdefault.jpg",
+      "https://i.ytimg.com/vi/sANlUtV-1nI/maxresdefault.jpg"
+    ],
+    "uploadDate": "2026-09-14T00:00:00+05:30",
+    "contentUrl": "https://youtu.be/sANlUtV-1nI",
+    "embedUrl": "https://www.youtube-nocookie.com/embed/sANlUtV-1nI",
+    "publisher": {
+      "@type": "Organization",
+      "name": "QuickMail",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://ashishingle29.github.io/quickmail/icons/icon128.png"
+      }
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Ashish Ingle",
+      "url": "https://ashishingle.com"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Table",
+    "name": "QuickMail Recruiter Outreach Spreadsheet Tracker",
+    "about": "Outreach logs and email extraction export compatible with Microsoft Excel and Google Sheets",
+    "description": "Live demonstration table showing detected recruiter email addresses, contact status, and log dates exported to Excel and CSV"
+  }
+  </script>
 </head>
 <body>
 
@@ -104,9 +143,9 @@
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
         <span>Add to Chrome — It's Free</span>
       </a>
-      <a href="#demo" class="btn btn-secondary btn-lg" id="heroDemoBtn">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
-        <span>See Interactive Demo</span>
+      <a href="#videoDemoWrapper" class="btn btn-secondary btn-lg" id="heroDemoBtn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        <span>Watch 10s Video Demo</span>
       </a>
     </div>
 
@@ -118,68 +157,82 @@
       <span class="proof-text">Rated <strong>5.0 / 5.0</strong> on Chrome Web Store • Works on Chrome, Edge & Brave</span>
     </div>
 
-    <!-- HERO INTERACTIVE MOCKUP PREVIEW -->
-    <div class="hero-mockup-wrapper">
-      <div class="browser-frame">
-        <div class="browser-header">
-          <div class="browser-dots">
-            <span class="dot dot-red"></span>
-            <span class="dot dot-yellow"></span>
-            <span class="dot dot-green"></span>
-          </div>
-          <div class="browser-url-bar">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            <span>https://techcareers.com/job/senior-engineer</span>
-          </div>
-          <div class="browser-extension-badge">
-            <span class="qmf-ext-icon">✉</span>
-            <span class="qmf-badge-count">3</span>
+    <!-- HERO VIDEO DEMO PLAYER -->
+    <div class="hero-mockup-wrapper" id="videoDemoWrapper">
+      <div class="video-player-header-bar">
+        <div class="video-status-indicator">
+          <span class="recording-pulse"></span>
+          <span class="video-label">LIVE DEMO FOOTAGE</span>
+          <span class="video-title-desc">• The Secret Tool to Finding Recruiter Emails on LinkedIn</span>
+        </div>
+        <div class="video-meta-tags">
+          <span class="meta-tag quality-tag">HD 1080p</span>
+          <span class="meta-tag loop-tag" title="Continuous video loop enabled">🔁 Auto-Loop</span>
+          <button type="button" class="meta-tag sound-tag" id="videoSoundToggle" title="Click to Unmute / Mute sound">
+            <span>🔊 Unmute</span>
+          </button>
+          <button type="button" class="meta-tag replay-tag" id="videoReplayBtn" title="Restart video from beginning">
+            <span>↺ Restart</span>
+          </button>
+          <a href="https://youtu.be/sANlUtV-1nI" target="_blank" rel="noopener noreferrer" class="meta-tag youtube-link-tag" title="Watch on YouTube">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            <span>Watch on YouTube</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="cinematic-theater-frame" id="introVideoPlayer">
+        <!-- Ambient Backlight Glow Effect Behind Video -->
+        <div class="theater-glow-fx"></div>
+
+        <!-- RESPONSIVE YOUTUBE VIDEO STAGE -->
+        <div class="youtube-video-container">
+          <iframe
+            id="youtubeHeroVideo"
+            src="https://www.youtube-nocookie.com/embed/sANlUtV-1nI?autoplay=1&mute=1&loop=1&playlist=sANlUtV-1nI&controls=1&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&cc_load_policy=1&iv_load_policy=3"
+            title="The Secret Tool to Finding Recruiter Emails on LinkedIn - QuickMail Finder"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            loading="lazy">
+          </iframe>
+        </div>
+
+        <!-- Interactive Feature Chapter Navigation Bar -->
+        <div class="video-chapters-bar">
+          <span class="chapters-label">⚡ Jump to Feature:</span>
+          <div class="chapter-chips">
+            <button type="button" class="chapter-chip active" data-seek="0" title="0:00 - See email discovery on webpage">
+              <span class="chip-time">0:00</span>
+              <span class="chip-name">🔍 Email Detection</span>
+            </button>
+            <button type="button" class="chapter-chip" data-seek="22" title="0:22 - Watch In-Page Compose with prefilled details">
+              <span class="chip-time">0:22</span>
+              <span class="chip-name">📝 In-Page Compose</span>
+            </button>
+            <button type="button" class="chapter-chip" data-seek="45" title="0:45 - 1-Click Launch into Gmail draft">
+              <span class="chip-time">0:45</span>
+              <span class="chip-name">🚀 1-Click Gmail Draft</span>
+            </button>
+            <button type="button" class="chapter-chip" data-seek="65" title="1:05 - Export and clean history workflow">
+              <span class="chip-time">1:05</span>
+              <span class="chip-name">📋 History &amp; CSV</span>
+            </button>
           </div>
         </div>
 
-        <div class="browser-viewport">
-          <!-- Page Content Simulation -->
-          <div class="simulated-page">
-            <div class="job-card">
-              <span class="job-tag">Engineering</span>
-              <h3>Senior Frontend Engineer — Remote</h3>
-              <p class="job-desc">We are hiring passionate engineers. Send your resume and portfolio directly to our engineering recruiter:</p>
-              
-              <div class="email-highlight-box">
-                <span class="email-target">careers@innovatetech.com</span>
-                <span class="inpage-button-preview">✉ Quick Draft</span>
-              </div>
-            </div>
-
-            <!-- Floating In-Page Compose Card Simulation -->
-            <div class="floating-draft-card">
-              <div class="draft-card-header">
-                <div class="draft-title">
-                  <span class="bolt">⚡</span> QuickMail In-Page Draft
-                </div>
-                <span class="draft-badge">Auto-Filled</span>
-              </div>
-              <div class="draft-card-body">
-                <div class="draft-field">
-                  <label>To:</label>
-                  <span>careers@innovatetech.com</span>
-                </div>
-                <div class="draft-field">
-                  <label>Subject:</label>
-                  <span>Job Application: Senior Frontend Engineer</span>
-                </div>
-                <div class="draft-field-body">
-                  "Hi Team, I came across your opening for Senior Frontend Engineer at InnovateTech. My portfolio & resume are attached..."
-                </div>
-              </div>
-              <div class="draft-card-footer">
-                <button class="btn-demo-action active">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                  Draft in Gmail
-                </button>
-                <button class="btn-demo-action">Outlook</button>
-              </div>
-            </div>
+        <!-- Video Features & Quick Steps Bar -->
+        <div class="video-features-footer">
+          <div class="feature-item">
+            <span class="feature-dot">⚡</span>
+            <span>Unmetered Free Email Extraction</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-dot">✉</span>
+            <span>Gmail &amp; Outlook 1-Click Templates</span>
+          </div>
+          <div class="feature-item">
+            <span class="feature-dot">🛡️</span>
+            <span>100% Client-Side Privacy (Zero Sign-up)</span>
           </div>
         </div>
       </div>
@@ -382,23 +435,65 @@
             </ul>
           </div>
           <div class="demo-visual">
-            <div class="preview-box export-preview">
-              <div class="table-preview-header">
-                <span>Email</span>
-                <span>Status</span>
-                <span>Date</span>
+            <div class="preview-box sheet-preview-box">
+              <!-- Excel / Google Sheets Application Toolbar -->
+              <div class="sheet-toolbar-header">
+                <div class="sheet-app-brand">
+                  <span class="sheet-app-icon">📊</span>
+                  <span class="sheet-file-name">quickmail_outreach_tracker.xlsx</span>
+                  <span class="sheet-badge-compat">Excel &amp; Google Sheets</span>
+                </div>
+                <div class="sheet-actions">
+                  <button type="button" class="sheet-copy-btn" id="copySheetDataBtn" title="Click to copy formatted rows for Excel or Google Sheets">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    <span>Copy Table</span>
+                  </button>
+                </div>
               </div>
-              <div class="table-preview-row">
-                <span>recruitment@meta.com</span>
-                <span class="badge-submitted">Submitted</span>
-                <span>Today</span>
+
+              <!-- Interactive Formula Bar -->
+              <div class="sheet-formula-bar">
+                <span class="sheet-cell-ref" id="sheetActiveCellRef">A1</span>
+                <span class="sheet-fx">fx</span>
+                <span class="sheet-formula-val" id="sheetFormulaDisplay">recruitment@meta.com</span>
               </div>
-              <div class="table-preview-row">
-                <span>sarah@fintechgrowth.io</span>
-                <span class="badge-drafted">Drafted</span>
-                <span>Yesterday</span>
+
+              <!-- Semantic Spreadsheet Grid (Indexed by Google Crawlers) -->
+              <div class="sheet-grid-wrapper">
+                <table class="sheet-table" itemscope itemtype="https://schema.org/Table">
+                  <caption class="sr-only">QuickMail Extracted Recruiter Contacts Excel and Google Sheets Spreadsheet Data</caption>
+                  <thead>
+                    <tr class="sheet-head-row">
+                      <th class="sheet-col-corner">#</th>
+                      <th class="sheet-col-header" scope="col"><span class="col-letter">A</span> Email Address</th>
+                      <th class="sheet-col-header" scope="col"><span class="col-letter">B</span> Outreach Status</th>
+                      <th class="sheet-col-header" scope="col"><span class="col-letter">C</span> Date Logged</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="sheet-row" id="sheetRow1" data-cell="A1" data-val="recruitment@meta.com" tabindex="0">
+                      <td class="sheet-row-num">1</td>
+                      <td class="sheet-cell-email">recruitment@meta.com</td>
+                      <td class="sheet-cell-status"><span class="badge-submitted">Submitted</span></td>
+                      <td class="sheet-cell-date">Today</td>
+                    </tr>
+                    <tr class="sheet-row" id="sheetRow2" data-cell="A2" data-val="sarah@fintechgrowth.io" tabindex="0">
+                      <td class="sheet-row-num">2</td>
+                      <td class="sheet-cell-email">sarah@fintechgrowth.io</td>
+                      <td class="sheet-cell-status"><span class="badge-drafted">Drafted</span></td>
+                      <td class="sheet-cell-date">Yesterday</td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
-              <button class="btn-csv-download">📥 Download All (CSV)</button>
+
+              <!-- Bottom Sheet Status Bar -->
+              <div class="sheet-bottom-status">
+                <div class="sheet-tab-pill">
+                  <span class="sheet-tab-active">Sheet1</span>
+                </div>
+                <span class="sheet-status-info">Ready • 2 rows indexed • 100% formatted</span>
+              </div>
             </div>
           </div>
         </div>
