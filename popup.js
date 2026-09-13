@@ -752,6 +752,7 @@ function escapeHtml(str) {
 
 function downloadCsv(filename, headers, rows) {
   const csvLines = [];
+  csvLines.push("# Extracted with QuickMail Finder — Free Chrome Extension: https://chromewebstore.google.com/detail/quickmail-finder-%E2%80%94-detect/nmghnadnnkageenfiklgoghlelodmked");
   csvLines.push(headers.map(escapeCsvCell).join(","));
   rows.forEach((row) => {
     csvLines.push(row.map(escapeCsvCell).join(","));
@@ -1613,6 +1614,39 @@ function initReviewSentimentUI() {
 
 // Check eligibility on popup open
 checkReviewPromptEligibility();
+
+// ==========================================================================
+// REFERRAL & SOCIAL SHARE ENGINE (QMF-018)
+// ==========================================================================
+function checkReferralPromptEligibility() {
+  const refCard = document.getElementById("referral-share-card");
+  const sentimentCard = document.getElementById("review-sentiment-card");
+  if (!refCard) return;
+
+  chrome.storage.local.get(
+    ["referralPromptDismissed", "draftsCreatedCount"],
+    (data) => {
+      if (data && data.referralPromptDismissed) return;
+      // Avoid competing with review sentiment card
+      if (sentimentCard && sentimentCard.style.display !== "none") return;
+
+      const drafts = (data && data.draftsCreatedCount) || 0;
+      if (drafts >= 5) {
+        refCard.style.display = "block";
+        const closeBtn = document.getElementById("referral-close-btn");
+        if (closeBtn) {
+          closeBtn.addEventListener("click", () => {
+            chrome.storage.local.set({ referralPromptDismissed: true });
+            refCard.style.display = "none";
+          });
+        }
+      }
+    }
+  );
+}
+
+checkReferralPromptEligibility();
+
 
 
 

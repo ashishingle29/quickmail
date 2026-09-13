@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shared Outreach Template | QuickMail Finder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .template-box {
+      max-width: 700px;
+      margin: 60px auto;
+      background: rgba(20, 27, 45, 0.85);
+      border: 1px solid var(--border-active);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      box-shadow: var(--shadow-glow);
+    }
+    .token-highlight {
+      background: rgba(99, 102, 241, 0.25);
+      color: #a5b4fc;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+    .template-display {
+      background: #090e1a;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      margin: 20px 0;
+      white-space: pre-wrap;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="ambient-glow glow-1"></div>
+
+  <header class="navbar-wrapper">
+    <nav class="navbar container">
+      <a href="index.html" class="nav-brand">
+        <div class="brand-icon">✉</div>
+        <span class="brand-name">QuickMail<span>Finder</span></span>
+      </a>
+      <a href="https://chromewebstore.google.com/detail/quickmail-finder-%E2%80%94-detect/nmghnadnnkageenfiklgoghlelodmked" target="_blank" class="btn btn-primary btn-sm">Add to Chrome — Free</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="template-box">
+      <span class="badge-text" style="color: #a5b4fc; font-size: 13px; font-weight: 700; text-transform: uppercase;">Shared Outreach Template</span>
+      <h1 id="templateTitle" style="font-size: 28px; margin: 10px 0 16px;">Cold Job Application Pitch</h1>
+      
+      <p style="color: var(--text-secondary); font-size: 14px;">This reusable template was created with QuickMail Finder. Dynamic tokens like <span class="token-highlight">{name}</span>, <span class="token-highlight">{company}</span>, and <span class="token-highlight">{driveLink}</span> auto-fill automatically when browsing pages.</p>
+
+      <div style="margin-top: 20px;">
+        <label style="font-size: 12px; color: var(--text-muted); text-transform: uppercase; font-weight: 700;">Subject Line:</label>
+        <div id="templateSubject" style="font-weight: 600; font-size: 16px; margin-top: 4px; color: #fff;">Regarding open engineering roles at {company}</div>
+      </div>
+
+      <div style="margin-top: 20px;">
+        <label style="font-size: 12px; color: var(--text-muted); text-transform: uppercase; font-weight: 700;">Email Body:</label>
+        <div id="templateBody" class="template-display">
+Hi {name},
+
+I came across your opening at {company} and wanted to reach out directly. Over the last several years, I've specialized in building high-performance web software.
+
+My portfolio and resume are attached below for your review:
+🔗 {driveLink}
+
+Would you be open to a brief 5-minute chat this week?
+
+Best regards,
+{yourName}
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 14px; flex-wrap: wrap; margin-top: 28px;">
+        <button id="copyTemplateBtn" class="btn btn-secondary btn-lg" style="flex: 1;" onclick="copyTemplate()">
+          📋 Copy Template
+        </button>
+        <a href="https://chromewebstore.google.com/detail/quickmail-finder-%E2%80%94-detect/nmghnadnnkageenfiklgoghlelodmked" target="_blank" class="btn btn-primary btn-lg" style="flex: 1.2;">
+          ⚡ Auto-Fill in Gmail (Install Free)
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function copyTemplate() {
+      const subject = document.getElementById('templateSubject').innerText;
+      const body = document.getElementById('templateBody').innerText;
+      const fullText = "Subject: " + subject + "\n\n" + body;
+      navigator.clipboard.writeText(fullText).then(() => {
+        const btn = document.getElementById('copyTemplateBtn');
+        btn.innerText = "✅ Copied to Clipboard!";
+        setTimeout(() => { btn.innerText = "📋 Copy Template"; }, 2000);
+      });
+    }
+
+    // Parse URL parameters if present
+    const params = new URLSearchParams(window.location.search);
+    if (params.has('title')) document.getElementById('templateTitle').innerText = params.get('title');
+    if (params.has('subject')) document.getElementById('templateSubject').innerText = params.get('subject');
+    if (params.has('body')) document.getElementById('templateBody').innerText = params.get('body');
+  </script>
+</body>
+</html>

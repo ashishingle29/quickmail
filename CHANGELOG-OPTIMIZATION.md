@@ -306,15 +306,23 @@ This document maintains a strict, verified record of every task executed, files 
 - **Deliverable Created:** `GROWTH-ACQUISITION-PLAYBOOK.md`
 - **Next Task:** `QMF-018` (Organic Product Loops, Templates & Referral Mechanisms)
 
+---
 
-
-
-
-
-
-
-
-
-
-
-
+### [QMF-018] Organic Product Loops, Templates & Referral Mechanisms
+- **Status:** DONE
+- **Date Completed:** 2026-09-13
+- **Product Growth Architect:** Senior Product Growth Engineer & Growth Loops Specialist
+- **Methodology:** Designed and engineered viral k-factor growth loops embedded directly into everyday utility workflows without degrading zero-telemetry privacy standards.
+- **Deliverables & Implementations:**
+  - `PRODUCT-LOOPS-SPECIFICATION.md`: Exhaustive architectural design of 4 core virality loops:
+    1. Loop 1 (Artifact Loop): Export attribution header in CSV exports (`# Extracted with QuickMail Finder...`) turning shared prospect spreadsheets into referral channels.
+    2. Loop 2 (Workflow Loop): Shareable Web Template URL generator (`website/template.html?t=...`) allowing users to share pre-configured cold outreach email templates with job seeker communities.
+    3. Loop 3 (Milestone In-Product Referral): Native referral prompt card (`#referral-share-card`) rendered at peak satisfaction (5th drafted email) with 1-click Twitter, LinkedIn, and WhatsApp sharing.
+    4. Loop 4 (Passive Word-of-Mouth): Gmail/Outlook signature footer hook ("Drafted in 1 click via QuickMail Finder") with user toggle.
+  - Extension Code Updates:
+    - `popup.html`: Added `#referral-share-card` banner card with share buttons.
+    - `popup.css`: Added styling for `.referral-share-card` and button states.
+    - `popup.js`: Added CSV referral attribution comment, milestone counter, and `checkReferralPromptEligibility()`.
+    - `website/template.html`: Created interactive template importer and custom URL generator with live preview and clipboard copy.
+- **Deliverables Created:** `PRODUCT-LOOPS-SPECIFICATION.md`, `website/template.html`
+- **Next Task:** `QMF-019` (Performance, DOM Overhead & High-Scale Efficiency Audit)
