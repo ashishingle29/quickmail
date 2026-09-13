@@ -2,14 +2,659 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>QuickMail — Free Email Finder & Extractor</title>
-  <meta http-equiv="refresh" content="0; url=website/">
-  <link rel="canonical" href="website/">
-  <script>
-    window.location.replace("website/");
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QuickMail — Free Email Finder & Extractor | 1-Click Outreach Extension</title>
+  <meta name="description" content="QuickMail is the fastest, 100% free email finder and extractor Chrome extension. Detect emails on any webpage and launch pre-filled Gmail or Outlook drafts in 1 click with zero credit limits.">
+  <meta name="keywords" content="email finder, free email finder, email extractor, find email address, gmail draft extension, job application email tool, recruiter email finder">
+  
+  <!-- Open Graph / Social Meta -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="QuickMail — Free Email Finder & Extractor">
+  <meta property="og:description" content="Detect contact emails on any website and draft pre-filled Gmail or Outlook emails in 1 click. 100% free forever, zero sign-up required.">
+  <meta property="og:url" content="https://ashishingle29.github.io/quickmail/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="QuickMail — Free Email Finder & Extractor">
+  <meta name="twitter:description" content="Find recruiter and business emails instantly. No credit limits, no account required.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="icons/icon48.png">
+
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="website/styles.css">
+
+  <!-- JSON-LD Structured Data for Google Rich Snippets -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "QuickMail — Free Email Finder & Extractor",
+    "operatingSystem": "Chrome, Brave, Edge, Opera",
+    "applicationCategory": "BusinessApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "ratingCount": "12"
+    },
+    "description": "100% free Chrome extension to detect emails on visited webpages and launch 1-click personalized drafts in Gmail or Outlook."
+  }
   </script>
 </head>
-<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; background: #070b14; color: #f8fafc;">
-  <p style="font-size: 16px;">Redirecting to <a href="website/" style="color: #6366f1; text-decoration: underline;">QuickMail Website</a>...</p>
+<body>
+
+  <!-- Background Glow FX -->
+  <div class="ambient-glow glow-1"></div>
+  <div class="ambient-glow glow-2"></div>
+
+  <!-- STICKY NAVIGATION -->
+  <header class="navbar-wrapper" id="mainHeader">
+    <nav class="navbar container">
+      <a href="#" class="nav-brand">
+        <div class="brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/><rect width="20" height="16" x="2" y="4" rx="3"/></svg>
+        </div>
+        <span class="brand-name">QuickMail</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#workflow" class="nav-link">How It Works</a>
+        <a href="#comparison" class="nav-link">Comparison</a>
+        <a href="#calculator" class="nav-link">Time Saved</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+      </div>
+
+      <div class="nav-actions">
+        <a href="https://chromewebstore.google.com/detail/quickmail-finder-%E2%80%94-detect/nmghnadnnkageenfiklgoghlelodmked" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" id="navCtaButton">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+          Add to Chrome — Free
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero-section container">
+    <div class="hero-badge">
+      <span class="badge-pulse"></span>
+      <span class="badge-text">⚡ 100% Free Forever • Zero Monthly Credit Limits</span>
+    </div>
+
+    <h1 class="hero-title">
+      Find Any Email on Any Webpage.<br>
+      <span class="gradient-text">Draft in Gmail in 1 Click.</span>
+    </h1>
+
+    <p class="hero-subtitle">
+      The fastest, zero-friction email finder and extractor for job seekers, freelancers, and outreach pros. No account sign-up, no 25-credit paywalls, and 100% on-device privacy.
+    </p>
+
+    <div class="hero-cta-group">
+      <a href="https://chromewebstore.google.com/detail/quickmail-finder-%E2%80%94-detect/nmghnadnnkageenfiklgoghlelodmked" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg" id="heroInstallBtn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+        <span>Add to Chrome — It's Free</span>
+      </a>
+      <a href="#demo" class="btn btn-secondary btn-lg" id="heroDemoBtn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+        <span>See Interactive Demo</span>
+      </a>
+    </div>
+
+    <!-- Rating / Trust Proof -->
+    <div class="hero-proof">
+      <div class="stars-group">
+        ★★★★★
+      </div>
+      <span class="proof-text">Rated <strong>5.0 / 5.0</strong> on Chrome Web Store • Works on Chrome, Edge & Brave</span>
+    </div>
+
+    <!-- HERO INTERACTIVE MOCKUP PREVIEW -->
+    <div class="hero-mockup-wrapper">
+      <div class="browser-frame">
+        <div class="browser-header">
+          <div class="browser-dots">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+          </div>
+          <div class="browser-url-bar">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            <span>https://techcareers.com/job/senior-engineer</span>
+          </div>
+          <div class="browser-extension-badge">
+            <span class="qmf-ext-icon">✉</span>
+            <span class="qmf-badge-count">3</span>
+          </div>
+        </div>
+
+        <div class="browser-viewport">
+          <!-- Page Content Simulation -->
+          <div class="simulated-page">
+            <div class="job-card">
+              <span class="job-tag">Engineering</span>
+              <h3>Senior Frontend Engineer — Remote</h3>
+              <p class="job-desc">We are hiring passionate engineers. Send your resume and portfolio directly to our engineering recruiter:</p>
+              
+              <div class="email-highlight-box">
+                <span class="email-target">careers@innovatetech.com</span>
+                <span class="inpage-button-preview">✉ Quick Draft</span>
+              </div>
+            </div>
+
+            <!-- Floating In-Page Compose Card Simulation -->
+            <div class="floating-draft-card">
+              <div class="draft-card-header">
+                <div class="draft-title">
+                  <span class="bolt">⚡</span> QuickMail In-Page Draft
+                </div>
+                <span class="draft-badge">Auto-Filled</span>
+              </div>
+              <div class="draft-card-body">
+                <div class="draft-field">
+                  <label>To:</label>
+                  <span>careers@innovatetech.com</span>
+                </div>
+                <div class="draft-field">
+                  <label>Subject:</label>
+                  <span>Job Application: Senior Frontend Engineer</span>
+                </div>
+                <div class="draft-field-body">
+                  "Hi Team, I came across your opening for Senior Frontend Engineer at InnovateTech. My portfolio & resume are attached..."
+                </div>
+              </div>
+              <div class="draft-card-footer">
+                <button class="btn-demo-action active">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                  Draft in Gmail
+                </button>
+                <button class="btn-demo-action">Outlook</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <section class="trust-bar container">
+    <div class="trust-items">
+      <div class="trust-item">
+        <div class="trust-icon">💎</div>
+        <div>
+          <h4>100% Free Forever</h4>
+          <p>No monthly 25-credit paywalls</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">🛡️</div>
+        <div>
+          <h4>Zero Data Tracking</h4>
+          <p>100% local on-device processing</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">⚡</div>
+        <div>
+          <h4>No Account Required</h4>
+          <p>Install and start using immediately</p>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">✉️</div>
+        <div>
+          <h4>1-Click Webmail</h4>
+          <p>Direct Gmail & Outlook integration</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEFORE VS AFTER COMPARISON -->
+  <section class="section container" id="workflow">
+    <div class="section-header">
+      <span class="section-tag">Efficiency Breakthrough</span>
+      <h2 class="section-title">The Painful 7-Step Manual Outreach vs. QuickMail</h2>
+      <p class="section-subtitle">How much time do you lose switching tabs, copying strings, and re-writing the same resume intro?</p>
+    </div>
+
+    <div class="workflow-comparison-grid">
+      <!-- The Old Way -->
+      <div class="workflow-card old-way">
+        <div class="card-status-badge old">❌ The Slow 7-Step Manual Way</div>
+        <ul class="workflow-steps">
+          <li><span>1</span> Manually scan messy web text to find contact email</li>
+          <li><span>2</span> Highlight and copy the email address string</li>
+          <li><span>3</span> Open a separate browser tab for Gmail or Outlook</li>
+          <li><span>4</span> Wait for Gmail to load and click "Compose"</li>
+          <li><span>5</span> Paste recipient email into "To" field</li>
+          <li><span>6</span> Find and copy your resume link from Google Drive</li>
+          <li><span>7</span> Manually type out your introduction and company name</li>
+        </ul>
+        <div class="workflow-footer old">
+          <strong>Average Time: ~4 to 6 minutes per email</strong>
+        </div>
+      </div>
+
+      <!-- The QuickMail Way -->
+      <div class="workflow-card new-way">
+        <div class="card-status-badge new">⚡ The QuickMail 2-Click Way</div>
+        <ul class="workflow-steps">
+          <li><span>1</span> <strong>Browse naturally:</strong> QuickMail detects emails and shows a discreet ✉ button right beside the text.</li>
+          <li><span>2</span> <strong>1-Click:</strong> Click ✉ to instantly open a pre-populated Gmail or Outlook draft with the hiring manager's name, company, custom pitch, and resume link ready to send.</li>
+        </ul>
+        <div class="workflow-footer new">
+          <strong>Average Time: ~5 seconds flat (50× faster)</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE DEMO / FEATURE SHOWCASE -->
+  <section class="section container" id="demo">
+    <div class="section-header">
+      <span class="section-tag">Interactive Preview</span>
+      <h2 class="section-title">Explore the Core Capabilities</h2>
+      <p class="section-subtitle">Click the tabs below to preview how QuickMail streamlines every phase of outreach.</p>
+    </div>
+
+    <div class="demo-container">
+      <div class="demo-tabs">
+        <button class="demo-tab active" data-tab="detect" id="tabDetect">
+          <span>🔍 In-Page Detection</span>
+        </button>
+        <button class="demo-tab" data-tab="compose" id="tabCompose">
+          <span>✉️ 1-Click Compose</span>
+        </button>
+        <button class="demo-tab" data-tab="templates" id="tabTemplates">
+          <span>📝 Smart Templates</span>
+        </button>
+        <button class="demo-tab" data-tab="export" id="tabExport">
+          <span>📊 CSV Export & History</span>
+        </button>
+      </div>
+
+      <div class="demo-display">
+        <!-- Detect Tab Content -->
+        <div class="demo-content-panel active" id="panel-detect">
+          <div class="demo-text">
+            <h3>Intelligent Real-Time Email Extraction</h3>
+            <p>Our TreeWalker engine silently identifies valid email addresses as you scroll. It automatically bypasses image filenames (like <code>logo@2x.png</code>), strips corrupted layout glue (like <code>To:recruiter@</code>), and groups duplicates into clean contact pills.</p>
+            <ul class="feature-checklist">
+              <li>✅ Detects corporate domains and personal `@gmail.com` emails</li>
+              <li>✅ Handles obfuscated split-span text on LinkedIn & job boards</li>
+              <li>✅ Non-intrusive toolbar badge with live detected count</li>
+            </ul>
+          </div>
+          <div class="demo-visual">
+            <div class="preview-box">
+              <div class="preview-item">
+                <span class="p-name">Alex Johnson (Head of Talent)</span>
+                <span class="p-email">alex.johnson@stripe.com</span>
+                <span class="p-btn">✉ Compose</span>
+              </div>
+              <div class="preview-item">
+                <span class="p-name">Acme Careers Desk</span>
+                <span class="p-email">hiring@acmecorp.io</span>
+                <span class="p-btn">✉ Compose</span>
+              </div>
+              <div class="preview-item">
+                <span class="p-name">Freelance Inquiries</span>
+                <span class="p-email">hello@designstudio.co</span>
+                <span class="p-btn">✉ Compose</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Compose Tab Content -->
+        <div class="demo-content-panel" id="panel-compose">
+          <div class="demo-text">
+            <h3>Instant 1-Click Compose into Gmail & Outlook</h3>
+            <p>Skip the copy-paste dance. Click any detected email to launch an isolated compose window in Gmail or Outlook with recipient, subject line, custom pitch, and resume links already filled.</p>
+            <ul class="feature-checklist">
+              <li>✅ Direct `/u/0/` and `/u/1/` multi-account routing for Google Workspace</li>
+              <li>✅ Outlook Web and native desktop Mailto support</li>
+              <li>✅ Zero tab switching with in-page floating draft cards</li>
+            </ul>
+          </div>
+          <div class="demo-visual">
+            <div class="preview-box compose-preview">
+              <div class="compose-bar">New Message — Gmail</div>
+              <div class="compose-row"><strong>To:</strong> priya.sharma@techfirm.com</div>
+              <div class="compose-row"><strong>Subject:</strong> Senior Product Designer Application (TechFirm)</div>
+              <div class="compose-textarea">
+                Hi Priya,<br><br>
+                I noticed TechFirm is expanding its product design team. My resume and case studies are linked below for your review:<br>
+                🔗 <u>drive.google.com/file/d/my-portfolio</u>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Templates Tab Content -->
+        <div class="demo-content-panel" id="panel-templates">
+          <div class="demo-text">
+            <h3>Dynamic Personalized Templates</h3>
+            <p>Write reusable templates once. QuickMail automatically replaces dynamic tokens with real contextual data so your emails feel uniquely crafted.</p>
+            <div class="token-chips">
+              <span class="chip">{name}</span>
+              <span class="chip">{company}</span>
+              <span class="chip">{email}</span>
+              <span class="chip">{yourName}</span>
+              <span class="chip">{driveLink}</span>
+            </div>
+            <p class="token-tip">💡 Store your Google Drive resume link once in settings; it automatically injects into your job outreach pitches.</p>
+          </div>
+          <div class="demo-visual">
+            <div class="preview-box template-preview">
+              <div class="template-card">
+                <h4>Job Application Pitch (Default)</h4>
+                <p>"Hi <strong>{name}</strong>, I'm reaching out regarding open engineering roles at <strong>{company}</strong>. My resume is available at <strong>{driveLink}</strong>..."</p>
+              </div>
+              <div class="template-card secondary">
+                <h4>Freelance Client Inquiry</h4>
+                <p>"Hi <strong>{name}</strong>, I saw the recent work by <strong>{company}</strong> and wanted to check if you have freelance capacity..."</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Export Tab Content -->
+        <div class="demo-content-panel" id="panel-export">
+          <div class="demo-text">
+            <h3>Application Tracking & Clean CSV Export</h3>
+            <p>Never lose track of where you've reached out. QuickMail logs your outreach activity locally so you can review who was contacted and when.</p>
+            <ul class="feature-checklist">
+              <li>✅ 1-Click clean CSV download for Excel & Google Sheets</li>
+              <li>✅ Status logging: "Submitted" vs "Drafted"</li>
+              <li>✅ 100% on-device local storage with zero cloud leaks</li>
+            </ul>
+          </div>
+          <div class="demo-visual">
+            <div class="preview-box export-preview">
+              <div class="table-preview-header">
+                <span>Email</span>
+                <span>Status</span>
+                <span>Date</span>
+              </div>
+              <div class="table-preview-row">
+                <span>recruitment@meta.com</span>
+                <span class="badge-submitted">Submitted</span>
+                <span>Today</span>
+              </div>
+              <div class="table-preview-row">
+                <span>sarah@fintechgrowth.io</span>
+                <span class="badge-drafted">Drafted</span>
+                <span>Yesterday</span>
+              </div>
+              <button class="btn-csv-download">📥 Download All (CSV)</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE TIME SAVED CALCULATOR -->
+  <section class="section container" id="calculator">
+    <div class="calculator-card">
+      <div class="calc-header">
+        <span class="section-tag">ROI & Productivity Calculator</span>
+        <h2>How Much Time Will QuickMail Save You?</h2>
+        <p>Adjust the slider to see how much manual copy-paste busywork you eliminate.</p>
+      </div>
+
+      <div class="calc-slider-wrapper">
+        <label for="emailsSlider" class="slider-label">
+          Outreach Emails / Job Applications Sent Per Week:
+          <span id="sliderValueDisplay" class="slider-val">25 emails</span>
+        </label>
+        <input type="range" id="emailsSlider" min="5" max="200" step="5" value="25" class="calc-slider">
+      </div>
+
+      <div class="calc-results-grid">
+        <div class="calc-result-box">
+          <span class="result-number" id="hoursSavedMonthly">8.3 hrs</span>
+          <span class="result-desc">Hours Saved Every Month</span>
+        </div>
+        <div class="calc-result-box">
+          <span class="result-number" id="daysSavedYearly">12.5 days</span>
+          <span class="result-desc">Productivity Days Gained / Year</span>
+        </div>
+        <div class="calc-result-box highlight">
+          <span class="result-number">$0.00</span>
+          <span class="result-desc">Subscription Cost (Free Forever)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPETITOR COMPARISON TABLE -->
+  <section class="section container" id="comparison">
+    <div class="section-header">
+      <span class="section-tag">Unfair Advantage</span>
+      <h2 class="section-title">QuickMail vs. Legacy Sales Tools</h2>
+      <p class="section-subtitle">Why active job seekers and creators are switching away from high-priced enterprise databases.</p>
+    </div>
+
+    <div class="table-responsive">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th class="col-highlight">QuickMail</th>
+            <th>Hunter.io</th>
+            <th>Snov.io</th>
+            <th>Email Extractor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Monthly Price</strong></td>
+            <td class="col-highlight text-green"><strong>100% Free Forever</strong></td>
+            <td>$49 – $499 / mo</td>
+            <td>$39 – $738 / mo</td>
+            <td>Freemium / Upsells</td>
+          </tr>
+          <tr>
+            <td><strong>Free Search Limit</strong></td>
+            <td class="col-highlight text-green"><strong>UNLIMITED</strong></td>
+            <td>25 searches/mo</td>
+            <td>50 credits/mo</td>
+            <td>Basic text only</td>
+          </tr>
+          <tr>
+            <td><strong>Account Sign-Up</strong></td>
+            <td class="col-highlight text-green"><strong>Zero (Install & Use)</strong></td>
+            <td>Work Email Required</td>
+            <td>Mandatory</td>
+            <td>None</td>
+          </tr>
+          <tr>
+            <td><strong>In-Page 1-Click Compose</strong></td>
+            <td class="col-highlight text-green"><strong>✅ Gmail & Outlook</strong></td>
+            <td>❌ Syncs to CRM</td>
+            <td>❌ Own Sequencer</td>
+            <td>❌ Raw text only</td>
+          </tr>
+          <tr>
+            <td><strong>Dynamic Outreach Templates</strong></td>
+            <td class="col-highlight text-green"><strong>✅ Dynamic Tokens</strong></td>
+            <td>❌ None</td>
+            <td>Paid Add-on</td>
+            <td>❌ None</td>
+          </tr>
+          <tr>
+            <td><strong>Resume / Drive Link Integration</strong></td>
+            <td class="col-highlight text-green"><strong>✅ Native Token</strong></td>
+            <td>❌ None</td>
+            <td>❌ None</td>
+            <td>❌ None</td>
+          </tr>
+          <tr>
+            <td><strong>Privacy & Tracking</strong></td>
+            <td class="col-highlight text-green"><strong>100% On-Device Local</strong></td>
+            <td>Cloud DB Tracking</td>
+            <td>Web Request Tracking</td>
+            <td>Moderate</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- TARGET AUDIENCE CALLOUTS -->
+  <section class="section container" id="personas">
+    <div class="section-header">
+      <span class="section-tag">Built For You</span>
+      <h2 class="section-title">Who Uses QuickMail?</h2>
+    </div>
+
+    <div class="persona-grid">
+      <div class="persona-card">
+        <div class="persona-icon">💼</div>
+        <h3>Active Job Seekers</h3>
+        <p>Bypass the applicant tracking black hole. Reach out directly to recruiters and engineering managers with your resume link attached in 1 click.</p>
+        <div class="persona-quote">"I sent 40 customized applications in 2 hours and landed 3 interviews in my first week."</div>
+      </div>
+
+      <div class="persona-card">
+        <div class="persona-icon">🎨</div>
+        <h3>Freelancers & Agencies</h3>
+        <p>Find contact emails on prospective client portfolios, design agencies, and directories without paying for high-ticket sales databases.</p>
+        <div class="persona-quote">"Saved me $49/month on Hunter credits and speeds up my outreach pitches by 80%."</div>
+      </div>
+
+      <div class="persona-card">
+        <div class="persona-icon">🚀</div>
+        <h3>Founders & Researchers</h3>
+        <p>Perform direct founder-to-founder outreach, customer discovery interviews, and partnership emails directly from your personal inbox.</p>
+        <div class="persona-quote">"Zero bloat, zero tracking. It does exactly what it promises without friction."</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ SECTION (ACCORDION WITH SCHEMA) -->
+  <section class="section container" id="faq">
+    <div class="section-header">
+      <span class="section-tag">Got Questions?</span>
+      <h2 class="section-title">Frequently Asked Questions</h2>
+    </div>
+
+    <div class="faq-accordion">
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false" id="faq1">
+          <span>Is QuickMail really 100% free?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Yes, absolutely. QuickMail has no monthly credit limits, no subscription paywalls, and never asks for a credit card. It runs client-side inside your browser, making it completely free and unlimited for all users.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false" id="faq2">
+          <span>Do I need to create an account or verify my email?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>No. QuickMail requires zero sign-up or registration. Simply install the extension from the Chrome Web Store and it works immediately on whatever website you visit.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false" id="faq3">
+          <span>Does QuickMail read my personal emails or collect my data?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Never. QuickMail has zero external servers, zero telemetry, and zero tracking scripts. It does not have access to your inbox or email history. All parsing, dynamic template substitution, and history logs live exclusively in your local browser storage.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false" id="faq4">
+          <span>Which email clients are supported?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>QuickMail natively integrates with Gmail (including multi-account selection like /u/0/ and /u/1/) and Outlook Web. It also supports universal Mailto links for desktop clients such as Apple Mail and Thunderbird.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false" id="faq5">
+          <span>Can I export found emails to a CSV or Excel file?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <p>Yes! Simply click the "Export to CSV" button inside the extension popup to instantly download a clean, formatted CSV file containing all detected emails from the active page.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA BANNER -->
+  <section class="final-cta-section container">
+    <div class="final-cta-card">
+      <h2>Start Finding Emails & Drafting Outreach in Seconds</h2>
+      <p>Join thousands of job seekers, freelancers, and professionals doing faster, smarter outreach with zero paywalls.</p>
+      <div class="final-cta-actions">
+        <a href="https://chromewebstore.google.com/detail/quickmail-finder-%E2%80%94-detect/nmghnadnnkageenfiklgoghlelodmked" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg" id="footerInstallBtn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+          Add to Chrome — 100% Free
+        </a>
+      </div>
+      <span class="final-cta-subtext">No credit card • No sign-up • Installs in 3 seconds</span>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="brand-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/><rect width="20" height="16" x="2" y="4" rx="3"/></svg>
+        </div>
+        <span>QuickMail</span>
+        <p>The privacy-first free email finder and 1-click outreach companion.</p>
+      </div>
+
+      <div class="footer-links-col">
+        <h5>Product</h5>
+        <a href="#features">Features</a>
+        <a href="#workflow">How It Works</a>
+        <a href="#comparison">Compare Hunter</a>
+        <a href="#calculator">ROI Calculator</a>
+      </div>
+
+      <div class="footer-links-col">
+        <h5>Resources</h5>
+        <a href="https://chromewebstore.google.com/detail/quickmail-finder-%E2%80%94-detect/nmghnadnnkageenfiklgoghlelodmked" target="_blank" rel="noopener noreferrer">Chrome Web Store</a>
+        <a href="https://github.com/ashishingle29/quickmail" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+        <a href="https://gist.github.com/ashishingle29/a921c30d9f22dff23c96361f758b11ee" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 QuickMail. Built with privacy and craftsmanship.</p>
+      <div class="footer-pills">
+        <span class="pill">Chrome MV3</span>
+        <span class="pill">Zero Telemetry</span>
+        <span class="pill">MIT Open Source</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="website/app.js"></script>
 </body>
 </html>
