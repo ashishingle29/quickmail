@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>QuickMail Finder</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <header>
+    <div class="header-left">
+      <img src="icons/icon48.png" alt="" />
+      <h1>QuickMail Finder</h1>
+    </div>
+    <div class="header-right">
+      <select id="theme-select" class="mode-select" title="Switch UI Theme">
+        <option value="system">💻 Auto</option>
+        <option value="dark">🌙 Dark</option>
+        <option value="light">☀️ Light</option>
+      </select>
+      <select id="detection-mode-select" class="mode-select" title="Switch Email Detection Mode">
+        <option value="auto">🤖 Auto</option>
+        <option value="manual">🎯 Manual</option>
+      </select>
+      <div class="toggle-group">
+        <label class="toggle-switch" title="Turn Extension ON/OFF">
+          <input type="checkbox" id="extension-toggle" checked />
+          <span class="toggle-slider"></span>
+        </label>
+        <span id="toggle-label" class="toggle-status-text">ON</span>
+      </div>
+    </div>
+  </header>
+
+  <div id="off-banner" class="off-banner" style="display: none;">
+    ⏸️ Extension is currently <b>OFF</b>. Page scanning is paused.
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <section class="tabs">
+    <button class="tab-btn active" data-tab="page">On this page <span id="tab-page-badge" class="tab-badge">0</span></button>
+    <button class="tab-btn" data-tab="history">History <span id="tab-history-badge" class="tab-badge">0</span></button>
+    <button class="tab-btn" data-tab="template">Settings</button>
+  </section>
+
+  <section id="tab-page" class="tab-panel active">
+    <div id="domain-restricted-banner" class="restricted-banner" style="display: none;">
+      <span>🚫 <b>Website Restricted:</b> <span id="restricted-domain-name"></span> is excluded from scanning.</span>
+      <button type="button" id="unrestrict-domain-btn" class="unrestrict-btn">Allow Site</button>
+    </div>
+    <div class="manual-add-bar">
+      <input type="email" id="manual-email-input" placeholder="Type or paste email address..." />
+      <button id="add-manual-email-btn" class="add-manual-btn">+ Add</button>
+    </div>
+    <span id="manual-add-status" class="manual-add-status"></span>
+    <div class="panel-header">
+      <p class="hint">Emails detected: <b id="page-email-count" class="count-highlight">0</b></p>
+      <div class="panel-header-actions">
+        <button id="auto-scan-btn" class="auto-scan-btn" title="Auto-scroll page and collect all emails">📡 Scan Feed</button>
+        <button id="export-page-btn" class="export-btn" title="Export page emails to Excel (.csv)">📊 Export</button>
+      </div>
+    </div>
+    <div class="bulk-bar">
+      <label class="select-all-label"><input type="checkbox" id="select-all-page" /> Select All</label>
+      <select id="bulk-mode-page" class="bulk-mode-select" title="Choose how to send bulk emails">
+        <option value="separate">⚡ Separate (Personalized)</option>
+        <option value="bcc">🔒 BCC (Hidden List)</option>
+        <option value="to">👥 To (Shared List)</option>
+      </select>
+      <button id="draft-selected-page-btn" class="bulk-draft-btn" disabled>Draft (0)</button>
+      <button id="copy-selected-page-btn" class="bulk-action-btn" disabled title="Copy selected emails to clipboard">📋 Copy</button>
+    </div>
+    <div id="email-list" class="email-list">
+      <p class="empty">Scanning…</p>
+    </div>
+  </section>
+
+  <section id="tab-history" class="tab-panel">
+    <div class="history-filter-bar">
+      <input type="text" id="history-search" placeholder="Search emails, domains, titles…" />
+      <select id="history-status-filter" title="Filter by status">
+        <option value="all">All</option>
+        <option value="Pending">Pending</option>
+        <option value="Submitted">Submitted</option>
+      </select>
+    </div>
+    <div class="history-count-bar">
+      <span id="history-count-text">Loading history…</span>
+      <span id="history-selection-text"></span>
+    </div>
+    <div class="history-summary-bar">
+      <label class="select-all-label"><input type="checkbox" id="select-all-history" /> Select All</label>
+      <select id="bulk-mode-history" class="bulk-mode-select" title="Choose how to send bulk emails">
+        <option value="separate">⚡ Separate (Personalized)</option>
+        <option value="bcc">🔒 BCC (Hidden List)</option>
+        <option value="to">👥 To (Shared List)</option>
+      </select>
+      <button id="draft-selected-history-btn" class="bulk-draft-btn" disabled>Draft (0)</button>
+      <button id="copy-selected-history-btn" class="bulk-action-btn" disabled title="Copy selected emails to clipboard">📋 Copy</button>
+    </div>
+    <div class="history-bulk-status-row">
+      <span class="bulk-status-label">Bulk Status:</span>
+      <button id="mark-submitted-history-btn" class="bulk-status-btn submitted" disabled>Mark ✅ Submitted</button>
+      <button id="mark-pending-history-btn" class="bulk-status-btn pending" disabled>Mark ⏳ Pending</button>
+    </div>
+    <div id="history-list" class="email-list history-list">
+      <p class="empty">Loading…</p>
+    </div>
+    <div class="history-actions">
+      <button id="export-history-btn" class="export-btn-full" title="Export email history to Excel (.csv)">📊 Export to Excel (.csv)</button>
+      <button id="clear-history-btn" class="secondary-btn">Clear history</button>
+    </div>
+  </section>
+
+  <section id="tab-template" class="tab-panel">
+    <label>Send via</label>
+    <select id="provider">
+      <option value="gmail">Gmail</option>
+      <option value="outlook">Outlook</option>
+    </select>
+
+    <label>Draft Window Layout</label>
+    <select id="draftWindowStyle">
+      <option value="batch_window">🚀 1. One Window with Tabs (All drafts in 1 window, auto-advances on send — Recommended)</option>
+      <option value="bouncing_popups">🏓 2. Bouncing Cascade Windows (Separate windows bouncing left-to-right like a ball game)</option>
+    </select>
+    <p class="placeholders" style="margin-top: 2px; margin-bottom: 8px;">
+      <b>Option 1:</b> Opens 1 single window with all drafts preloaded in parallel tabs. When you click Send, it auto-advances to the next tab.<br/>
+      <b>Option 2:</b> Opens separate windows that step right across the screen and bounce back like a ball game, leaving Send buttons exposed.
+    </p>
+
+    <label>Send from account</label>
+    <input type="text" id="fromAccount" placeholder="e.g. yourname@gmail.com or 0" />
+    <p class="placeholders" id="account-help">
+      Gmail: enter account position (0 = primary/first, 1 = second, etc.) or full email.
+      Defaults to position 0 (first account) if left blank. Outlook: enter your email address.
+    </p>
+
+    <label>Your Name (Used in {yourName} placeholder)</label>
+    <input type="text" id="yourName" placeholder="e.g. Ashish Ingle" />
+
+    <label>Google Drive File / PDF Link (Optional)</label>
+    <input type="url" id="driveLink" placeholder="e.g. https://drive.google.com/file/d/..." />
+
+    <label>Document Name / Title</label>
+    <input type="text" id="driveTitle" placeholder="e.g. Resume_Ashish_Ingle.pdf" />
+
+    <label>Attachment Display Style (Live Preview Below)</label>
+    <select id="driveStyle">
+      <option value="link">✅ Clean Hyperlink (Best Spam Deliverability)</option>
+      <option value="pill">🏷️ Compact Attachment Pill</option>
+      <option value="card">📦 Full Document Box Card</option>
+    </select>
+
+    <div class="demo-box">
+      <div class="demo-title">👁️ Live Attachment Demo Look</div>
+      <div id="drive-demo-preview" class="demo-preview-content"></div>
+    </div>
+
+    <label>Subject template</label>
+    <input type="text" id="subjectTemplate" />
+
+    <label>Body template</label>
+    <textarea id="bodyTemplate" rows="5"></textarea>
+
+    <p class="placeholders">
+      Placeholders: <code>{name}</code> <code>{company}</code>
+      <code>{email}</code> <code>{yourName}</code> <code>{driveLink}</code><br>
+      Create links like this: <code>[Portfolio](https://ashishingle.com)</code>
+    </p>
+
+    <div class="settings-divider"></div>
+    <div class="settings-section-title">🚫 Restricted Websites &amp; Emails</div>
+    <p class="placeholders" style="margin-top: 2px; margin-bottom: 8px;">
+      Prevent email scanning on specific websites and stop personal or sensitive emails from being detected or drafted.
+    </p>
+
+    <label>Restricted Websites (Never Scan)</label>
+    <div class="restriction-field-wrap">
+      <textarea id="restrictedDomains" rows="2" placeholder="e.g. mail.google.com, outlook.live.com, internal.company.com"></textarea>
+      <button type="button" id="add-current-domain-btn" class="quick-add-rule-btn" title="Add current active site to restricted list">+ Add Current Site</button>
+    </div>
+    <p class="placeholders" style="margin-top: 2px; margin-bottom: 10px;">
+      Comma or newline separated. Email detection and badge counts are completely disabled on these domains.
+    </p>
+
+    <label>Restricted Emails (Never Capture / Ignore)</label>
+    <div class="restriction-field-wrap">
+      <textarea id="restrictedEmails" rows="2" placeholder="e.g. mypersonal@gmail.com, noreply@*, alerts@*"></textarea>
+      <button type="button" id="add-account-email-btn" class="quick-add-rule-btn" title="Add your sender email to restricted list">+ Add My Email</button>
+    </div>
+    <p class="placeholders" style="margin-top: 2px; margin-bottom: 12px;">
+      Comma or newline separated. Supports wildcards like <code>noreply@*</code>. These emails will never be detected, saved to history, or drafted.
+    </p>
+
+    <button id="save-btn">Save Settings</button>
+    <p id="save-status"></p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="footer-content">
+      <span>Made with ❤️ by <a href="https://ashishingle.com" target="_blank" class="footer-link">Ashish Ingle</a></span>
+      <span class="footer-divider">•</span>
+      <a href="https://forms.gle/2UYCV6p4bWYiG4jPA" target="_blank" class="footer-link">Support & Feedback</a>
+    </div>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+# Distribution zips
+*.zip
+*.crx
+
+# OS & Editor files
+.DS_Store
+Thumbs.db
+*.log
+.vscode/
+.idea/

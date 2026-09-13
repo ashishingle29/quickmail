@@ -1,0 +1,280 @@
+.qmf-email-wrap {
+  position: relative;
+  display: inline;
+}
+
+.qmf-email-text {
+  background: rgba(37, 99, 235, 0.08);
+  border-bottom: 1px dashed rgba(37, 99, 235, 0.5);
+  border-radius: 2px;
+  padding: 0 2px;
+  transition: background 0.15s ease;
+}
+
+.qmf-email-wrap:hover .qmf-email-text {
+  background: rgba(37, 99, 235, 0.16);
+}
+
+.qmf-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  margin-left: 3px;
+  font-size: 11px;
+  line-height: 1;
+  color: #ffffff;
+  background: #2563eb;
+  border-radius: 50%;
+  cursor: pointer;
+  vertical-align: middle;
+  user-select: none;
+  box-shadow: 0 1px 3px rgba(37, 99, 235, 0.3);
+  transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.15s ease, box-shadow 0.15s ease;
+}
+
+.qmf-icon:hover {
+  background: #1d4ed8;
+  transform: scale(1.22);
+  box-shadow: 0 2px 6px rgba(29, 78, 216, 0.45);
+}
+
+/* Badge injected when email is split across multiple child spans (LinkedIn, Naukri etc.) */
+.qmf-split-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 6px;
+  padding: 1px 6px 1px 4px;
+  background: rgba(37, 99, 235, 0.1);
+  border: 1px solid rgba(37, 99, 235, 0.35);
+  border-radius: 999px;
+  font-size: 11px;
+  color: #2563eb;
+  vertical-align: middle;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.qmf-split-badge:hover {
+  background: rgba(37, 99, 235, 0.2);
+}
+
+.qmf-panel {
+  position: absolute;
+  z-index: 2147483647;
+  width: 325px;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  box-shadow: 0 12px 36px rgba(15, 23, 42, 0.18), 0 2px 6px rgba(15, 23, 42, 0.08);
+  padding: 14px 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 13px;
+  color: #1e293b;
+  animation: qmfFadeIn 0.2s cubic-bezier(0, 0, 0.2, 1);
+}
+
+@keyframes qmfFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.qmf-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 700;
+  font-size: 13.5px;
+  margin-bottom: 10px;
+  color: #0f172a;
+}
+
+.qmf-close {
+  border: none;
+  background: transparent;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  color: #94a3b8;
+  padding: 2px 6px;
+  border-radius: 4px;
+  transition: all 0.15s ease;
+}
+
+.qmf-close:hover {
+  color: #ef4444;
+  background: #fef2f2;
+}
+
+.qmf-panel label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  color: #64748b;
+  margin: 8px 0 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.qmf-optional {
+  text-transform: none;
+  font-weight: 400;
+  color: #94a3b8;
+}
+
+.qmf-panel input[type="text"],
+.qmf-panel textarea,
+.qmf-panel select {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 6px 9px;
+  font-size: 13px;
+  font-family: inherit;
+  color: #0f172a;
+  background: #f8fafc;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.qmf-panel input[type="text"]:focus,
+.qmf-panel textarea:focus,
+.qmf-panel select:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+  background: #ffffff;
+}
+
+.qmf-panel input[readonly] {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+.qmf-panel textarea {
+  resize: vertical;
+  background: #ffffff;
+  min-height: 80px;
+  max-height: 180px;
+  overflow-y: auto;
+  line-height: 1.4;
+}
+
+.qmf-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  align-items: center;
+}
+
+.qmf-provider {
+  flex: 0 0 95px;
+}
+
+.qmf-send {
+  flex: 1;
+  border: none;
+  background: #2563eb;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 13px;
+  padding: 8px 12px;
+  border-radius: 7px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(37, 99, 235, 0.25);
+  transition: all 0.15s ease;
+}
+
+.qmf-send:hover {
+  background: #1d4ed8;
+  box-shadow: 0 4px 8px rgba(29, 78, 216, 0.35);
+}
+
+/* ── Auto Scan floating on-screen bar ─────────────────────────────── */
+#qmf-autoscan-bar {
+  position: fixed;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2147483647;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  background: #0f172a;
+  border: 1px solid rgba(37, 99, 235, 0.6);
+  border-radius: 999px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(37, 99, 235, 0.2);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 13px;
+  color: #e2e8f0;
+  user-select: none;
+  animation: qmf-bar-in 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes qmf-bar-in {
+  from { opacity: 0; transform: translateX(-50%) translateY(16px) scale(0.95); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0)    scale(1);    }
+}
+
+.qmf-asb-icon {
+  font-size: 16px;
+  animation: qmf-pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes qmf-pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+.qmf-asb-text {
+  font-weight: 600;
+  color: #f1f5f9;
+  white-space: nowrap;
+}
+
+.qmf-asb-count {
+  background: rgba(37, 99, 235, 0.25);
+  color: #93c5fd;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(37, 99, 235, 0.4);
+  white-space: nowrap;
+}
+
+.qmf-asb-stop {
+  background: #dc2626;
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 4px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.qmf-asb-stop:hover {
+  background: #b91c1c;
+  transform: scale(1.05);
+}
+
+.qmf-asb-close {
+  background: #475569;
+}
+
+.qmf-asb-close:hover {
+  background: #334155;
+}
