@@ -123,23 +123,92 @@ in an identical spot):
 
 ---
 
-## What's New in Version 1.2.0 (Release Notes)
+## 📦 Version & Release History
 
-### 🚀 New Features & Enhancements
-- **Auto-Detection for Primary Gmail Account (`/u/0/`)**:
-  - Automatically targets account index `/u/0/` (your primary/first logged-in Google account) on any browser, system, or profile out of the box when no account is specified.
-- **Redesigned Compact "Submitted" UI**:
-  - Replaced wide inline text tags with a sleek, circular green checkmark badge (`✓`) that preserves horizontal layout and prevents email truncation.
-  - Hovering over the checkmark badge reveals the exact submission timestamp (`Submitted at: DD Mon YYYY, HH:MM`).
-  - Hovering over the row's selection checkbox or the **Resend** button also reveals the submission date & time.
-  - Improved row contrast with soft green accents for submitted emails.
+| Version | Status | Highlights |
+| :--- | :--- | :--- |
+| **[v1.2.0](#version-120--latest-release)** | 🚀 **Latest Release** | Email prefix sanitizer fix, Restricted Domains/Emails, Debounced history search, Bouncing cascade windows, Compact checkmark UI, Primary Gmail `/u/0/` routing |
+| **[v1.1.0](#version-110)** | Stable | Auto-scroll feed scanner (`📡 Scan Feed`), Split-span detection, Multi-email bulk outreach (Separate, BCC, TO), Google Drive attachment styling & preview, Dark/Light theme, Excel (.xls) merged cell export |
+| **[v1.0.0](#version-100--initial-release)** | Initial Release | Manifest V3 foundation, Real-time DOM text scanning, Inline 1-click draft panel (`✉`), Grouped history tracking, Email template engine |
 
-### 🐛 Bug Fixes
-- **On-Page Quick Draft Status Tracking**:
-  - Fixed an issue where clicking "Open Compose" from the on-page (DOM) draft panel failed to mark the email as "Submitted" and missed recording the submission timestamp in History. Both the popup and on-page drafts now consistently record status.
+---
 
-### 🛡️ Production & Chrome Web Store Readiness
-- **Minimal Permissions Compliant**: Removed unused `"scripting"` permission to ensure smooth and fast Chrome Web Store approval.
-- **Context Invalidation Protection**: Added cleanup listeners in content scripts to avoid `Extension context invalidated` console errors when updating or reloading.
-- **Generic Public Template Defaults**: Removed hardcoded sample emails in template inputs.
+### [Version 1.2.0] — Latest Release
+
+#### 🚀 Features & Enhancements
+- **Intelligent Email Prefix Sanitizer & Glitch Fix**:
+  - Automatically cleans erroneous prefixes attached to email addresses from web layouts:
+    - Strips label/protocol prefixes (`mailto:`, `email:`, `to:`, `contact:`, `reach:`).
+    - Cleans run-on `To` prefixes before names and job role keywords (`Torecruitment@...` → `recruitment@...`, `Tohr@...` → `hr@...`, `ToVaishali@...` → `Vaishali@...`).
+    - Strips ALL-CAPS surname run-ons from profile cards (`INGLEashishingle589@...` → `ashishingle589@...`).
+    - Strips duplicate avatar initials (`Hharsadash77@...` → `harsadash77@...`).
+  - Automatic migration & deduplication: instantly sanitizes and merges existing corrupted records in history storage.
+- **Restricted Websites (Domain Blacklist)**:
+  - Exclude entire websites (e.g. `mail.google.com`, `outlook.live.com`) from being scanned.
+  - One-click `+ Add Current Site` button and on-page banner with unrestrict shortcut.
+- **Restricted Emails (Address Blacklist)**:
+  - Block specific email addresses or patterns (with wildcard `*` support) so personal or company emails are never detected or added to history.
+  - One-click `+ Add My Email` shortcut.
+- **Debounced History Search & Chunked Lazy-Loading**:
+  - 220ms search debouncing eliminates UI freezes across large datasets.
+  - Smooth 30-item chunked virtualized lazy-loading reduces DOM overhead by >90%.
+  - Centralized event delegation for high-speed list responsiveness.
+- **Global Search & Bulk Actions**:
+  - Multi-field search querying email, domain, page title, URL, timestamp, and status.
+  - Global bulk selection (`Select All`, `Draft Selected`, `Copy Selected`, `Mark Submitted/Pending`, `Export to Excel`) operating across the entire dataset in memory.
+- **Zero-Configuration Primary Gmail Account Routing (`/u/0/`)**:
+  - Automatically routes compose links to account index `/u/0/` when no account is specified.
+- **Bouncing Ping-Pong Cascade Windows**:
+  - Dynamic window positioning for separate popups that reverses horizontal direction when hitting monitor edges, keeping send buttons visible.
+- **Compact "Submitted" UI with Timestamp Tooltips**:
+  - Space-saving circular checkmark badge (`✓`) preventing email truncation.
+  - Hover tooltip showing exact submission date and time.
+
+#### 🐛 Bug Fixes
+- **DOM Container Spacing**: Traverses elements with whitespace boundaries to prevent adjacent text nodes from concatenating into corrupted emails.
+- **High-Concurrency HTML Safety**: Replaced regex innerHTML modification with immutable DOM widgets, eliminating raw HTML code leakage in Gmail/Outlook compose editors.
+- **On-Page Draft Status Sync**: Floating panel "Open Compose" button reliably marks emails as Submitted in history storage.
+- **Storage Queue Serialization**: Fixed race conditions during rapid multi-draft updates.
+
+---
+
+### [Version 1.1.0]
+
+#### 🚀 Features & Enhancements
+- **Auto-Scroll Feed Scanner (`📡 Scan Feed`)**:
+  - Hands-free automated scrolling for infinite-scroll feeds (LinkedIn, Twitter/X, job boards) with on-screen stop pill.
+- **Split-Span Email Detection**:
+  - Detects emails split across multiple child HTML tags (`<span>user</span><span>@</span><span>domain.com</span>`).
+- **Markdown Link Formatting**:
+  - Support for `[Link Text](URL)` format in body templates, rendered as rich clickable hyperlinks.
+- **Multi-Email Bulk Compose Modes**:
+  - **Separate (Personalized 1-on-1)**: Staggered independent windows with individualized token replacement.
+  - **BCC (Hidden List)**: Single compose window with hidden recipients.
+  - **TO (Shared List)**: Single compose window with shared recipients.
+- **Google Drive / PDF Attachment Card Styles**:
+  - Three configurable formats for `{driveLink}`: `Clean Link`, `Attachment Pill`, `Document Box Card` with interactive live preview.
+- **Theme Customization**:
+  - System Auto, Dark, and Light themes.
+- **Global ON/OFF Switch**:
+  - Master toggle switch to pause all scanning and remove injected icons.
+- **Dual Detection Modes**:
+  - Switch between `Auto` logging and `Manual` verification (`➕ Add to List & History`).
+- **Excel (.xls) Export with Merged Cells**:
+  - Professional spreadsheet export with multi-row span merging for email addresses found across multiple websites.
+
+---
+
+### [Version 1.0.0] — Initial Release
+
+#### 🚀 Core Capabilities
+- **Manifest V3 Architecture**: Modern Chrome service worker and declarative content scripts.
+- **Real-Time DOM Scanner**: TreeWalker text scanner with smart tag exclusions and false-positive image file filtering.
+- **Inline Draft Trigger (`✉`)**: Subtle in-page icons opening pre-filled draft panels.
+- **Toolbar Badge**: Real-time detected email counter on the extension icon.
+- **Grouped Contact History**: Deduplicated history tracking by email with visit counts and lead statuses (`Pending` vs `Submitted`).
+- **Template Engine**: Dynamic token replacement for `{name}`, `{company}`, `{email}`, and `{yourName}` supporting Gmail and Microsoft Outlook.
+- **Context Menu Integration**: Right-click selected text → `Draft email to "%s"`.
+
+For complete technical change logs and Chrome Web Store submission notes, see [CHANGELOG.md](CHANGELOG.md).
+
 
