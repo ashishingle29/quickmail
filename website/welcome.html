@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to QuickMail Finder — Quick Start Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #070b14;
+      --card: rgba(255, 255, 255, 0.04);
+      --border: rgba(255, 255, 255, 0.1);
+      --primary: #6366f1;
+      --primary-hover: #4f46e5;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent-green: #10b981;
+      --gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #3b82f6 100%);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background: rgba(99, 102, 241, 0.15);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      border-radius: 9999px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #c7d2fe;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(32px, 5vw, 44px);
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .gradient-text {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .subtitle {
+      font-size: 17px;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .step-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 30px;
+      margin-bottom: 24px;
+      backdrop-filter: blur(10px);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .step-card:hover {
+      border-color: rgba(99, 102, 241, 0.4);
+    }
+
+    .step-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .step-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 16px;
+      color: #fff;
+    }
+
+    .step-header h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .step-content p {
+      color: var(--text-muted);
+      font-size: 15px;
+      margin-bottom: 16px;
+    }
+
+    .pin-guide-box {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px dashed rgba(99, 102, 241, 0.4);
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      text-align: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .pin-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .pin-icon-wrap {
+      width: 50px;
+      height: 50px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+
+    .pin-step span {
+      font-size: 13px;
+      font-weight: 600;
+      color: #cbd5e1;
+    }
+
+    .sandbox-box {
+      background: rgba(99, 102, 241, 0.1);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .sandbox-email-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: #0d1322;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 10px 18px;
+      border-radius: 8px;
+      margin: 16px 0;
+      font-family: monospace;
+      font-size: 15px;
+      color: #93c5fd;
+    }
+
+    .btn-test-action {
+      background: var(--gradient);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 6px;
+      text-decoration: none;
+      box-shadow: 0 2px 10px rgba(99, 102, 241, 0.4);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+
+    .footer-action {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .btn-primary-large {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--gradient);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 16px 32px;
+      border-radius: 9999px;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4);
+      transition: transform 0.2s ease;
+    }
+
+    .btn-primary-large:hover {
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header">
+      <div class="badge">🎉 Extension Successfully Installed</div>
+      <h1>Welcome to <span class="gradient-text">QuickMail Finder</span></h1>
+      <p class="subtitle">You're 60 seconds away from 10× faster email outreach with zero monthly limits.</p>
+    </div>
+
+    <!-- STEP 1: PIN TO TOOLBAR -->
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-num">1</div>
+        <h2>Pin QuickMail Finder to Your Toolbar (Important!)</h2>
+      </div>
+      <div class="step-content">
+        <p>By default, Chrome hides new extensions. Pin it right now so it is always 1 click away when you need it:</p>
+        
+        <div class="pin-guide-box">
+          <div class="pin-step">
+            <div class="pin-icon-wrap">🧩</div>
+            <span>1. Click the Puzzle Icon in Chrome</span>
+          </div>
+          <div style="color: var(--text-muted); font-size: 20px;">➔</div>
+          <div class="pin-step">
+            <div class="pin-icon-wrap">📌</div>
+            <span>2. Click the Pin next to QuickMail Finder</span>
+          </div>
+          <div style="color: var(--text-muted); font-size: 20px;">➔</div>
+          <div class="pin-step">
+            <div class="pin-icon-wrap" style="color: #6366f1;">✉️</div>
+            <span>3. Ready for 1-Click Access</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 2: TEST SANDBOX -->
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-num">2</div>
+        <h2>Test Your First 1-Click Draft (Interactive Sandbox)</h2>
+      </div>
+      <div class="step-content">
+        <p>Try it right now on this simulated contact card. Notice how QuickMail Finder automatically detects emails and lets you compose immediately:</p>
+        
+        <div class="sandbox-box">
+          <h3>Lead Talent Recruiter</h3>
+          <div class="sandbox-email-pill">
+            <span>recruiter@innovatetech.com</span>
+            <span class="btn-test-action" onclick="alert('Great job! When browsing any real website, clicking this icon opens a pre-filled Gmail or Outlook draft in 1 second.');">
+              ✉ Quick Draft
+            </span>
+          </div>
+          <p style="font-size: 13px; color: var(--text-muted);">👆 Click the ✉ Quick Draft button above to see the magic!</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 3: CONFIGURE TEMPLATES -->
+    <div class="step-card">
+      <div class="step-header">
+        <div class="step-num">3</div>
+        <h2>Add Your Resume Link & Custom Pitch</h2>
+      </div>
+      <div class="step-content">
+        <p>Click the QuickMail Finder icon in your toolbar, go to the <strong>Settings</strong> tab, and save your Google Drive resume link. It will automatically attach to all job outreach pitches using the <code>{driveLink}</code> dynamic token.</p>
+      </div>
+    </div>
+
+    <div class="footer-action">
+      <a href="index.html" class="btn-primary-large">
+        Explore Features & Website ➔
+      </a>
+    </div>
+  </div>
+
+</body>
+</html>

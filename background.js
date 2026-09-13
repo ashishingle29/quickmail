@@ -8,8 +8,12 @@
 const EMAIL_REGEX = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const MAX_HISTORY = 1000;
 
-chrome.runtime.onInstalled.addListener(() => {
+chrome.runtime.onInstalled.addListener((details) => {
   chrome.runtime.setUninstallURL("https://forms.gle/2UYCV6p4bWYiG4jPA");
+
+  if (details && details.reason === "install") {
+    chrome.tabs.create({ url: chrome.runtime.getURL("welcome.html") });
+  }
 
   chrome.contextMenus.create({
     id: "qmf-draft-email",

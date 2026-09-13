@@ -243,6 +243,22 @@ This document maintains a strict, verified record of every task executed, files 
 - **Deliverable Created:** `ANALYTICS-FUNNEL-SPECIFICATION.md`
 - **Next Task:** `QMF-014` (Onboarding, Activation & Retention Engine Optimization)
 
+---
+
+### [QMF-014] Onboarding, Activation & Retention Engine Optimization
+- **Status:** DONE
+- **Date Completed:** 2026-09-13
+- **Architect:** Senior Product Growth Manager & Activation Specialist
+- **Methodology:** Time-to-Value (TTV) optimization, toolbar pinning behavioral psychology, and retention loop engineering.
+- **Deliverables & Code Updates Produced:**
+  - `ONBOARDING-RETENTION-SPECIFICATION.md`: Blueprint detailing the 60-second TTV flow, toolbar pinning guide, 3 product retention loops (ambient badge, in-page inline ✉, local history), and friction audit.
+  - `welcome.html`: Standalone post-install onboarding page bundled with the extension, featuring a visual pin-to-toolbar animation (🧩 $\rightarrow$ 📌), an interactive test contact sandbox card (`careers@quickmail-demo.com`), and Google Drive resume link instructions.
+  - `website/welcome.html`: Synchronized public web onboarding guide.
+  - `background.js`: Updated `chrome.runtime.onInstalled` to automatically launch `welcome.html` on initial installation (`details.reason === 'install'`).
+- **Deliverables Created:** `ONBOARDING-RETENTION-SPECIFICATION.md`, `welcome.html`, `website/welcome.html`, updated `background.js`
+- **Next Task:** `QMF-015` (Genuine Review & User Feedback Collection System)
+
+
 
 
 
