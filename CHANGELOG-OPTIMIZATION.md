@@ -56,3 +56,19 @@ This document maintains a strict, verified record of every task executed, files 
   - All recent fixes (DOM spacing, email prefix sanitization, debounce optimization, cascade windows) validated functional.
 - **Deliverable Created:** `PRODUCT-QA-REPORT.md`
 - **Next Task:** `QMF-004` (Market Segmentation & Primary Audience Definition)
+
+---
+
+### [QMF-004] Market Segmentation & Primary Audience Positioning
+- **Status:** DONE
+- **Date Completed:** 2026-09-13
+- **Strategist:** Senior Product Marketing & Growth Strategist
+- **Research & Scoring:**
+  - Evaluated 5 audience segments across 8 quantitative criteria.
+  - Winner: **Segment A: Active Job Seekers & Career Changers** (Score: 75.5/80).
+  - Secondary: **Segment D: Freelancers & Agency Founders** (Score: 62.5/80).
+- **Key Positioning Decisions:**
+  - Core Promise: *"Find any hiring manager or recruiter email on any webpage, and launch a personalized Gmail or Outlook draft in 1 click — 100% free, no sign-up, zero data tracking."*
+  - Differentiation from B2B sales giants: 100% on-device privacy, zero account signup required, free Google Drive resume attachment cards, no monthly subscription caps.
+- **Deliverable Created:** `POSITIONING-AUDIT.md`
+- **Next Task:** `QMF-005` (Chrome Web Store Competitor Deep-Dive Analysis)
