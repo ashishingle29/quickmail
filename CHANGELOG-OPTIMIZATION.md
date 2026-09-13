@@ -93,3 +93,23 @@ This document maintains a strict, verified record of every task executed, files 
 - **Deliverable Created:** `COMPETITOR-ANALYSIS.md`
 - **Next Task:** `QMF-006` (High-Intent Keyword Research: Volume, Intent, SERP Analysis)
 
+---
+
+### [QMF-006] High-Intent Keyword Research & SERP Matrix
+- **Status:** DONE
+- **Date Completed:** 2026-09-13
+- **Strategist:** SEO Strategist & Chrome Web Store Optimization Specialist
+- **Methodology:** CWS autocomplete search parsing, intent taxonomy classification, and competitor title decomposition.
+- **Key Findings & Deliverables:**
+  - Constructed an exhaustive 5-category keyword universe across:
+    1. Head Terms (`email finder`, `email extractor`, `email scraper`)
+    2. Problem-Aware Terms (`find recruiter email on linkedin`, `find hiring manager email`)
+    3. Feature-Specific Terms (`free email finder chrome extension`, `extract emails to csv`, `gmail compose shortcut`)
+    4. Audience-Specific Terms (`job application email tool`, `cold email extension for job seekers`)
+    5. Competitor-Alternative Terms (`free hunter io alternative`, `unlimited email finder chrome extension`)
+  - Outlined CWS ranking algorithm mechanics: Title (45%), Short Description (25%), Detailed Body (20%), Rating/Retention (10%).
+  - Defined priority deployment roadmap across CWS metadata, website landing pages, and educational guides.
+- **Deliverable Created:** `KEYWORD-RESEARCH.md`
+- **Next Task:** `QMF-007` (Keyword Gap Analysis & Opportunity Mapping)
+
+
