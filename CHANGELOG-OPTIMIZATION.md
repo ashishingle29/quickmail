@@ -228,6 +228,22 @@ This document maintains a strict, verified record of every task executed, files 
 - **Deliverable Created:** `CONTENT-MARKETING-STRATEGY.md`
 - **Next Task:** `QMF-013` (Privacy-Preserving Funnel & Lifecycle Analytics Specification)
 
+---
+
+### [QMF-013] Privacy-Preserving Funnel & Lifecycle Analytics Specification
+- **Status:** DONE
+- **Date Completed:** 2026-09-13
+- **Architect:** Senior Product Growth Manager & Privacy Auditor
+- **Methodology:** Lifecycle funnel decomposition with strict adherence to the 100% on-device zero-telemetry guarantee.
+- **Deliverables Produced:**
+  - Formulated the 7-stage conversion funnel: Discovery $\rightarrow$ Install $\rightarrow$ First Open $\rightarrow$ First Detection $\rightarrow$ First 1-Click Compose (Aha Moment) $\rightarrow$ Habit $\rightarrow$ Power User.
+  - Defined exact benchmarks: 8–12% CWS install CTR, >60% Aha moment execution, >40% W1 retention.
+  - Evaluated measurement architectures: recommended Option A (Native Chrome Web Store developer metrics) to preserve 100% zero-network audit status, supplemented by local, on-device user productivity stats in `popup.js`.
+  - Configured churn diagnosis mechanism via verified `chrome.runtime.setUninstallURL` with a targeted 3-question exit survey to identify dropped sites, UI friction, and feature requests.
+- **Deliverable Created:** `ANALYTICS-FUNNEL-SPECIFICATION.md`
+- **Next Task:** `QMF-014` (Onboarding, Activation & Retention Engine Optimization)
+
+
 
 
 
