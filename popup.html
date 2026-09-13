@@ -44,6 +44,40 @@
   </section>
 
   <section id="tab-page" class="tab-panel active">
+    <!-- Sentiment Review Prompt Banner -->
+    <div id="review-sentiment-card" class="review-sentiment-card" style="display: none;">
+      <button type="button" id="review-close-btn" class="review-close-btn" title="Dismiss">✕</button>
+      
+      <!-- State 1: Sentiment Check -->
+      <div id="review-state-ask" class="review-state">
+        <p class="review-title">✨ <b>Enjoying QuickMail Finder?</b></p>
+        <div class="review-btn-row">
+          <button type="button" id="review-btn-happy" class="review-btn review-btn-yes">😍 Loving it!</button>
+          <button type="button" id="review-btn-unhappy" class="review-btn review-btn-no">😕 Not really</button>
+        </div>
+      </div>
+
+      <!-- State 2A: High Sentiment -> CWS Review -->
+      <div id="review-state-cws" class="review-state" style="display: none;">
+        <p class="review-title">⭐ <b>That makes our day!</b></p>
+        <p class="review-subtext">Could you take 20 seconds to leave a 5-star review? It helps other job seekers find us!</p>
+        <div class="review-btn-row">
+          <a href="https://chromewebstore.google.com/detail/quickmail-finder-%E2%80%94-detect/nmghnadnnkageenfiklgoghlelodmked/reviews" target="_blank" id="review-btn-store" class="review-btn review-btn-store">⭐ Leave a Review</a>
+          <button type="button" id="review-btn-later" class="review-btn review-btn-dismiss">Maybe later</button>
+        </div>
+      </div>
+
+      <!-- State 2B: Low Sentiment -> Private Feedback Form -->
+      <div id="review-state-feedback" class="review-state" style="display: none;">
+        <p class="review-title">💬 <b>We want to make it better!</b></p>
+        <p class="review-subtext">Tell our engineer directly what went wrong so we can fix it for your websites.</p>
+        <div class="review-btn-row">
+          <a href="https://forms.gle/2UYCV6p4bWYiG4jPA" target="_blank" id="review-btn-form" class="review-btn review-btn-form">📝 Send Feedback</a>
+          <button type="button" id="review-btn-never" class="review-btn review-btn-dismiss">Don't ask again</button>
+        </div>
+      </div>
+    </div>
+
     <div id="domain-restricted-banner" class="restricted-banner" style="display: none;">
       <span>🚫 <b>Website Restricted:</b> <span id="restricted-domain-name"></span> is excluded from scanning.</span>
       <button type="button" id="unrestrict-domain-btn" class="unrestrict-btn">Allow Site</button>

@@ -263,6 +263,11 @@ function draftMultipleEmails(emails, mode = "separate") {
     status: "Submitted"
   });
 
+  chrome.storage.local.get(["draftsCreatedCount"], (res) => {
+    const current = (res && res.draftsCreatedCount) || 0;
+    chrome.storage.local.set({ draftsCreatedCount: current + emails.length });
+  });
+
   chrome.storage.sync.get(DEFAULT_SETTINGS, (settings) => {
     if (mode === "separate") {
       const windowStyle = settings.draftWindowStyle || "batch_window";
@@ -999,6 +1004,11 @@ if (exportPageBtn) {
     ]);
     const dateStamp = new Date().toISOString().slice(0, 10);
     downloadCsv(`QuickMail_Page_Emails_${dateStamp}.csv`, headers, rows);
+
+    chrome.storage.local.get(["csvExportsCount"], (res) => {
+      const current = (res && res.csvExportsCount) || 0;
+      chrome.storage.local.set({ csvExportsCount: current + 1 });
+    });
   });
 }
 
@@ -1506,6 +1516,104 @@ clearHistoryBtn.addEventListener("click", () => {
     renderHistory([]);
   });
 });
+
+// ==========================================================================
+// GENUINE REVIEW & SENTIMENT PROMPT ENGINE (QMF-015)
+// ==========================================================================
+function checkReviewPromptEligibility() {
+  const sentimentCard = document.getElementById("review-sentiment-card");
+  if (!sentimentCard) return;
+
+  chrome.storage.local.get(
+    ["reviewPromptCompleted", "reviewPromptDismissedUntil", "draftsCreatedCount", "csvExportsCount"],
+    (data) => {
+      if (data && data.reviewPromptCompleted) return;
+
+      const now = Date.now();
+      if (data && data.reviewPromptDismissedUntil && now < data.reviewPromptDismissedUntil) {
+        return; // Snoozed
+      }
+
+      const drafts = (data && data.draftsCreatedCount) || 0;
+      const exports = (data && data.csvExportsCount) || 0;
+
+      // Peak Joy trigger: after 3rd draft or 1st CSV export
+      if (drafts >= 3 || exports >= 1) {
+        sentimentCard.style.display = "block";
+        initReviewSentimentUI();
+      }
+    }
+  );
+}
+
+function initReviewSentimentUI() {
+  const sentimentCard = document.getElementById("review-sentiment-card");
+  const stateAsk = document.getElementById("review-state-ask");
+  const stateCws = document.getElementById("review-state-cws");
+  const stateFeedback = document.getElementById("review-state-feedback");
+
+  const btnClose = document.getElementById("review-close-btn");
+  const btnHappy = document.getElementById("review-btn-happy");
+  const btnUnhappy = document.getElementById("review-btn-unhappy");
+  const btnStore = document.getElementById("review-btn-store");
+  const btnLater = document.getElementById("review-btn-later");
+  const btnForm = document.getElementById("review-btn-form");
+  const btnNever = document.getElementById("review-btn-never");
+
+  // Step 1: User says they are enjoying it
+  if (btnHappy) {
+    btnHappy.addEventListener("click", () => {
+      if (stateAsk) stateAsk.style.display = "none";
+      if (stateCws) stateCws.style.display = "block";
+    });
+  }
+
+  // Step 1: User says "Not really"
+  if (btnUnhappy) {
+    btnUnhappy.addEventListener("click", () => {
+      if (stateAsk) stateAsk.style.display = "none";
+      if (stateFeedback) stateFeedback.style.display = "block";
+    });
+  }
+
+  // Step 2A: User clicks "Leave a Review" -> direct CWS review dialog
+  if (btnStore) {
+    btnStore.addEventListener("click", () => {
+      chrome.storage.local.set({ reviewPromptCompleted: true });
+      if (sentimentCard) sentimentCard.style.display = "none";
+    });
+  }
+
+  // Step 2B: User clicks "Send Feedback" -> Google Form
+  if (btnForm) {
+    btnForm.addEventListener("click", () => {
+      chrome.storage.local.set({ reviewPromptCompleted: true });
+      if (sentimentCard) sentimentCard.style.display = "none";
+    });
+  }
+
+  // Dismiss / Maybe later: Snooze for 30 days
+  const snooze30Days = () => {
+    const snoozeUntil = Date.now() + 30 * 24 * 60 * 60 * 1000;
+    chrome.storage.local.set({ reviewPromptDismissedUntil: snoozeUntil });
+    if (sentimentCard) sentimentCard.style.display = "none";
+  };
+
+  if (btnClose) btnClose.addEventListener("click", snooze30Days);
+  if (btnLater) btnLater.addEventListener("click", snooze30Days);
+
+  // Don't ask again: Permanently dismiss
+  if (btnNever) {
+    btnNever.addEventListener("click", () => {
+      chrome.storage.local.set({ reviewPromptCompleted: true });
+      if (sentimentCard) sentimentCard.style.display = "none";
+    });
+  }
+}
+
+// Check eligibility on popup open
+checkReviewPromptEligibility();
+
 
 
 
