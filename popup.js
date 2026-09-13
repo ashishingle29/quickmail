@@ -614,11 +614,15 @@ function updateDemoPreview() {
   const style = driveStyleEl ? driveStyleEl.value : "link";
 
   if (style === "link") {
-    demoPreviewEl.innerHTML = `<div class="demo-preview-row">📄 <b>Attached Document:</b> <a href="${link}" target="_blank" onclick="return false;" class="demo-link-text">${escapeHtml(title)}</a></div>`;
+    demoPreviewEl.innerHTML = `<div class="demo-preview-row">📄 <b>Attached Document:</b> <a href="${link}" target="_blank" class="demo-link-text">${escapeHtml(title)}</a></div>`;
   } else if (style === "pill") {
-    demoPreviewEl.innerHTML = `<div style="display: inline-block;"><a href="${link}" target="_blank" onclick="return false;" class="demo-pill-btn"><span class="pdf-tag">PDF</span><span>${escapeHtml(title)}</span><span style="font-size: 11px;">↗</span></a></div>`;
+    demoPreviewEl.innerHTML = `<div style="display: inline-block;"><a href="${link}" target="_blank" class="demo-pill-btn"><span class="pdf-tag">PDF</span><span>${escapeHtml(title)}</span><span style="font-size: 11px;">↗</span></a></div>`;
   } else {
-    demoPreviewEl.innerHTML = `<div class="demo-card-box"><table cellpadding="0" cellspacing="0" style="width: 100%;"><tr><td style="vertical-align: middle; padding-right: 12px; width: 42px;"><div class="pdf-badge-square">PDF</div></td><td style="vertical-align: middle;"><div class="demo-card-title">${escapeHtml(title)}</div><a href="${link}" target="_blank" onclick="return false;" class="demo-card-sublink">📎 Click to View &amp; Download File</a></td></tr></table></div>`;
+    demoPreviewEl.innerHTML = `<div class="demo-card-box"><table cellpadding="0" cellspacing="0" style="width: 100%;"><tr><td style="vertical-align: middle; padding-right: 12px; width: 42px;"><div class="pdf-badge-square">PDF</div></td><td style="vertical-align: middle;"><div class="demo-card-title">${escapeHtml(title)}</div><a href="${link}" target="_blank" class="demo-card-sublink">📎 Click to View &amp; Download File</a></td></tr></table></div>`;
+  }
+  const previewAnchor = demoPreviewEl.querySelector("a");
+  if (previewAnchor) {
+    previewAnchor.addEventListener("click", (e) => e.preventDefault());
   }
 }
 

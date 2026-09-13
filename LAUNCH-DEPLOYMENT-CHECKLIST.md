@@ -41,15 +41,15 @@
 
 - **Extension Name (Max 75 chars):**
   ```text
-  QuickMail Finder — Email Finder & 1-Click Draft
+  QuickMail — Free Email Finder & Extractor
   ```
-  *(Character count: 48 chars — Well under 75 char limit, front-loads high-volume exact-match keyword "Email Finder")*
+  *(Character count: 41 chars — Maximum organic SEO reach for both #1 and #2 CWS queries: 'Email Finder' & 'Email Extractor')*
 
 - **Short Description / Summary (Max 132 chars):**
   ```text
-  Find verified recruiter & hiring emails on any webpage. Launch personalized Gmail or Outlook drafts in 1 click. 100% free & private.
+  Free Email Finder & Extractor. Instantly detect emails on any page & draft pre-filled emails in Gmail or Outlook with 1 click.
   ```
-  *(Character count: 131 chars — Fits within the strict 132-character Chrome Web Store cut-off limit)*
+  *(Character count: 126 chars — Fits cleanly within strict 132-char cut-off, highlights 100% free value proposition)*
 
 - **Category:** `Productivity`
 - **Primary Language:** `English`
